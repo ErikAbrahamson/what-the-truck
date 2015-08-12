@@ -1,1 +1,3 @@
-/* add custom styles */
+#venue-list {
+  min-height: 200px;
+}
