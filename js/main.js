@@ -11,6 +11,15 @@ $(document).ready(function() {
   var browse = 'browse';
   var radius = 800 || userInput;
   var near = 'll=40.7,-74';
+  var getLocation = function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(geLocation);
+    }
+    var ll = lat + lng;
+    return ll;
+  };
   var currentDate = function() {
     var today = new Date();
     var dd = today.getDate();
