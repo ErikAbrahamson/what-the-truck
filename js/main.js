@@ -1,25 +1,16 @@
 
-var search = 'https://api.foursquare.com/v2/venues/search?';
+var search = 'https://api.foursquare.com/v2/venues/explore?';
 var ID = '&client_id=L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP&client_secret=GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE';
 // https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&v=YYYYMMDD
 // search?request
 // intent?browse
 // radius? (in meters)
 
-$(document).ready(function() {
+// $(document).ready(function() {
   //set intent to browse
   var browse = 'browse';
-  var radius = 800 || userInput;
-  var near = 'll=40.7,-74';
-  var getLocation = function(position) {
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude;
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(geLocation);
-    }
-    var ll = lat + lng;
-    return ll;
-  };
+  var radius = 1600;
+  var denver = 'll=39.733848%2C-104.992459';
   var currentDate = function() {
     var today = new Date();
     var dd = today.getDate();
@@ -37,12 +28,17 @@ $(document).ready(function() {
 
   //AJAX Request
   $.ajax({
-    url: search + near + ID + currentDate(),
+    url: search + denver + '&query=Food%20Truck' + ID + currentDate(),
     type: 'GET',
+    dataType: 'JSON',
+    data: [{ client_id:'L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP'},{ client_secret:'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE'}],
     success: function(data) {
       console.log(data);
+    },
+    error: function(data) {
+      console.log('error');
     }
   });
-});
+// });
 
 
