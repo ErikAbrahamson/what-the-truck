@@ -1,4 +1,6 @@
+var currentList = [];
 $(document).ready(function() {
+
   var search = 'https://api.foursquare.com/v2/venues/explore?';
   var ID = '&client_id=L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP&client_secret=GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE';
   var denver = 'll=39.733848%2C-104.992459';
@@ -27,8 +29,9 @@ $(document).ready(function() {
         { client_secret:'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE'}],
       success: function(data) {
         venues = data.response.groups[0].items;
-        currentList = new VenueList(venues);
-        currentList = currentList.data;
+        for (var i = 0; i < venues.length; i++) {
+          currentList.push(venues[i]);
+        }
         return currentList;
       }
     });
