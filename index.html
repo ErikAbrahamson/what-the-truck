@@ -2,20 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Untitled</title>
-
+    <title>What The Truck!</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <div id="container">
+    <div class="container">
+      <div class="col-xs-6-offset-6">
+        <h1 class="text-center">What The Truck!</h1>
+        <h4 class="text-center">Find the best food trucks near you</h4>
+      </div>
+      <div class="col-xs-2-offset-6">
+        <input class="form-control" type="search">
+        <button id="sort-rating" class="col-xs-4 btn btn-info">Sort by Rating</button>
+        <button id="sort-distance" class="col-xs-4 btn btn-info">Sort by Distance</button>
+        <button id="sort-price" class="col-xs-4 btn btn-info">Sort by Price</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/dom.js"></script>
   </body>
 </html>
