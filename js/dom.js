@@ -12,8 +12,8 @@ $(document).ready(function() {
       },
       dataType: 'json',
       success: function(data) {
-        console.log(data);
-        venues = data.response.venues[0].items;
+        console.log(data.response.venues);
+        venues = data.response.venues;
         get.initVenues(venues);
       }
     });
