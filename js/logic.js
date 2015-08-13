@@ -13,20 +13,22 @@ var get = {
     currentVenues = venues;
     console.log('Venues received!');
   },
-  ratingHigh: function(venues) {
-    var venuesCopy = venues.slice();
+  highRating: function(venues) {
     var sorted = [];
+    var venuesCopy = venues.slice();
       for (var i = 0; i < venuesCopy.length; i++) {
-        if (venuesCopy[i].venue.rating > 5 && venuesCopy[i].venue.rating !== undefined) {
-          venuesCopy.sort(function(a, b) {
-            return b.venue.rating - a.venue.rating;
+        if (venuesCopy[i].venue.rating !== undefined || null) {
+          console.log(venuesCopy[i].venue.rating);
+            venuesCopy.sort(function(a, b) {
+          return b.venue.rating - a.venue.rating;
           });
-          sorted.push(venuesCopy[i]);
+        } else {
+          // console.log('no rating');
         }
       }
       return sorted;
     },
-  ratingLow: function(venues) {
+  lowRating: function(venues) {
     var sorted = [];
       for (var i = 0; i < venues.length; i++) {
         if (venues[i].venue.rating < 5 || venues[i].venue.rating === undefined) {
