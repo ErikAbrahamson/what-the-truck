@@ -28,9 +28,9 @@ $(document).ready(function() {
       success: function(data) {
         venues = data.response.groups[0].items;
         for (var i = 0; i < venues.length; i++) {
-          currentList.push(venues[i]);
+          currentVenues.push(venues[i]);
         }
-        return currentList;
+        return currentVenues;
       }
     });
   });

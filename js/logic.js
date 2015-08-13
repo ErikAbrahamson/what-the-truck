@@ -1,28 +1,31 @@
+var currentVenues = [];
 var x = {
-  sortHigh: function() {
+  initVenues: function(venues) {
+    console.log(venues);
+  },
+  ratingHigh: function(venues) {
+    var venuesCopy = venues.slice();
     var sorted = [];
-      for (var i = 0; i < currentList.length; i++) {
-        if (currentList[i].venue.rating > 5 && currentList[i].venue.rating !== undefined) {
-          currentList.sort(function(a, b) {
+      for (var i = 0; i < venuesCopy.length; i++) {
+        if (venuesCopy[i].venue.rating > 5 && venuesCopy[i].venue.rating !== undefined) {
+          venuesCopy.sort(function(a, b) {
             return b.venue.rating - a.venue.rating;
           });
-          sorted.push(currentList[i]);
+          sorted.push(venuesCopy[i]);
         }
       }
       return sorted;
     },
-  sortLow: function() {
+  ratingLow: function(venues) {
     var sorted = [];
-      for (var i = 0; i < currentList.length; i++) {
-        if (currentList[i].venue.rating < 5 || currentList[i].venue.rating === undefined) {
-          currentList.sort(function(a, b) {
+      for (var i = 0; i < venues.length; i++) {
+        if (venues[i].venue.rating < 5 || venues[i].venue.rating === undefined) {
+          venues.sort(function(a, b) {
             return a.venue.rating - b.venue.rating;
           });
-        sorted.push(currentList[i]);
+        sorted.push(venues[i]);
       }
     }
     return sorted;
   }
 };
-
-var currentList = [];
