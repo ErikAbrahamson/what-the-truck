@@ -1,7 +1,17 @@
-var currentVenues = [];
-var x = {
+var get = {
+  currentDate: function() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) { dd = '0' + dd; }
+    if (mm < 10) { mm = '0' + mm; }
+    today = '&v=' + yyyy + mm + dd;
+    return today;
+  },
   initVenues: function(venues) {
-    console.log(venues);
+    currentVenues = venues;
+    console.log('Venues received!');
   },
   ratingHigh: function(venues) {
     var venuesCopy = venues.slice();
