@@ -14,7 +14,13 @@ $(document).ready(function() {
       },
       dataType: 'json',
       success: function(data) {
-        venues = data.response.groups[0].items;
+        unfiltered = data.response.groups[0].items;
+        venues = [];
+        for (var i = 0; i < unfiltered.length; i++) {
+          if (unfiltered[i].venue.categories[0].id === '4bf58dd8d48988d1cb941735') {
+            venues.push(unfiltered[i]);
+          }
+        }
         get.initVenues(venues);
       },
       error: function() {
@@ -22,5 +28,7 @@ $(document).ready(function() {
       }
     });
   }, 300);
+  // currentVenues[23].venue.categories[0].id
+  // 4bf58dd8d48988d1cb941735
   // DOM stuff here
 });
