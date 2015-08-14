@@ -25,7 +25,7 @@ To create a simple UI to let a user search for food trucks in a given location r
 1. ~~Understand Foursquare API~~
 1. ~~If not sufficient, look at Twitter API~~
 1. ~~Define what information will be needed to track trucks~~
-1. Optimize UI to support live API data
+1. Optimize UI to continually compliment live API data
 1. Create search query parameters
 1. Test information & search results
 1. Create responsive bootstrap layout
