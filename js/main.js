@@ -20,7 +20,7 @@ $(document).ready(function() {
           if (unfiltered[i].venue.categories[0].id === '4bf58dd8d48988d1cb941735') {
             venues.push(unfiltered[i]);
           }
-          get.initVenues(venues);
+          get.newTrucks(venues);
         }
       },
       error: function(error) {

@@ -1,18 +1,24 @@
 var get = {
-  initVenues: function(venues) {
-    currentVenues = venues;
-  },
   Truck: function(venues) {
     this.name = venues.venue.name;
-    this.rating = venues.venue.rating;
+    this.rating = venues.venue.rating || undefined;
     this.price = venues.venue.price.message;
     this.location = venues.venue.location.address;
-    this.distance = (venues.venue.location.distance * 0.000621371)
+    this.distance = +(venues.venue.location.distance * 0.000621371)
       .toFixed(1);
     this.hours = venues.venue.hours.status;
     this.open = venues.venue.hours.isOpen || false;
-    this.website = venues.venue.url;
-    this.menu = venues.venue.url;
+    this.website = venues.venue.url || undefined;
+    this.menu = venues.venue.url || undefined;
+    this.twitter = venues.venue.contact.twitter || undefined;
+    this.formattedPhone = venues.venue.contact.formattedPhone || undefined;
+    this.phone = venues.venue.contact.phone;
+  },
+    newTrucks: function(venues) {
+    currentVenues = venues;
+    currentTrucks = currentVenues.map(function(truck) {
+      return new get.Truck(truck);
+    });
   },
   currentDate: function() {
     var today = new Date();
