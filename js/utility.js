@@ -1,18 +1,17 @@
 var get = {
   Truck: function(trucks) {
-    this.name = trucks.venue.name;
-    this.rating = trucks.venue.rating || undefined;
-    this.price = trucks.venue.price.message;
-    this.location = trucks.venue.location.address;
-    this.distance = +(trucks.venue.location.distance * 0.000621371)
-      .toFixed(1);
-    this.hours = trucks.venue.hours.status;
-    this.open = trucks.venue.hours.isOpen || false;
-    this.website = trucks.venue.url || undefined;
-    this.menu = trucks.venue.url || undefined;
-    this.twitter = trucks.venue.contact.twitter || undefined;
-    this.formattedPhone = trucks.venue.contact.formattedPhone || undefined;
-    this.phone = trucks.venue.contact.phone;
+    this.name = trucks.venue.name ? trucks.venue.name : 'n/a';
+    this.rating = trucks.venue.rating ? trucks.venue.rating : 'This truck has not been rated yet';
+    this.price = trucks.venue.price ? trucks.venue.price.message : 'n/a';
+    this.location = trucks.venue.location ? trucks.venue.location.address : 'n/a';
+    this.distance = +(trucks.venue.location.distance * 0.000621371).toFixed(1) ? +(trucks.venue.location.distance * 0.000621371).toFixed(1) : 'n/a';
+    this.hours = trucks.venue.hours ? trucks.venue.hours.status : 'Hours not available';
+    this.open = trucks.venue.hours ? trucks.venue.hours.isOpen : 'n/a';
+    this.website = trucks.venue.url ? trucks.venue.url : 'No website posted';
+    this.menu = trucks.venue.url ? trucks.venue.url : 'No menu posted';
+    this.twitter = trucks.venue.contact.twitter ? trucks.venue.contact.twitter : 'No Twitter account listed';
+    this.formattedPhone = trucks.venue.contact.formattedPhone ? trucks.venue.contact.formattedPhone : 'No phone number listed';
+    this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'No phone number listed';
   },
     newTrucks: function(trucks) {
     currenttrucks = trucks;
