@@ -13,7 +13,7 @@ To create a simple UI to let a user search for food trucks in a given location r
 1. jQuery
 1. JSON/AJAX
 1. Foursquare API
-1. *possibly* Twitter API
+1. ~~*possibly* Twitter API~~
 
 ##Constraints
 1. Quality of API data
