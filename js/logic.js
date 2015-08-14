@@ -22,8 +22,6 @@ var get = {
             venuesCopy.sort(function(a, b) {
           return b.venue.rating - a.venue.rating;
           });
-        } else {
-          // console.log('no rating');
         }
       }
       return sorted;

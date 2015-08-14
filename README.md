@@ -17,12 +17,12 @@ To create a simple UI to let a user search for food trucks in a given location r
 
 ##Constraints
 1. Quality of API data
-1. Limits of API data
-1. Alternative solutions
+~~1. Limits of API data~~
+~~1. Alternative solutions~~
 
 ##Procedure for project
-1. Understand Foursquare API
-1. If not sufficient, look at Twitter API
+~~1. Understand Foursquare API~~
+~~1. If not sufficient, look at Twitter API~~
 1. Define what information will be needed to track trucks
 1. Create search query parameters
 1. Test information & search results
