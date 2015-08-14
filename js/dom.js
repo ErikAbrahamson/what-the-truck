@@ -29,10 +29,10 @@ $(document).ready(function() {
     });
   }, 300);
   $(window).on('load', function() {
-    var truck = $('<div>')
-      .append('<span>Test</span')
-      .addClass('truck')
-      .hide().delay(200).fadeIn(400);
-    $('#venue-list').append(truck);
+    // var truck = $('<div>')
+    //   .append('<span>Test</span')
+    //   .addClass('truck')
+    //   .hide().delay(200).fadeIn(400);
+    // $('#venue-list').append(truck);
   });
 });

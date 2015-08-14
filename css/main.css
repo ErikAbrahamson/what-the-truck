@@ -1,3 +1,19 @@
 #venue-list {
-  min-height: 200px;
+  min-height: 100px;
+}
+.truck {
+  display: block;
+  height: 100px;
+}
+.logo {
+  height: 100px;
+  border: 1px solid black;
+}
+.name-desc {
+  height: 100px;
+  border: 1px solid black;
+}
+.info {
+  height: 100px;
+  border: 1px solid black;
 }
