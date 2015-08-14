@@ -13,28 +13,31 @@ var get = {
     currentVenues = venues;
     console.log('Venues received!');
   },
+  lowRating: function(venues) {
+    var sorted = [];
+    var venuesCopy = venues.slice();
+    for (var i in venuesCopy) {
+      if (typeof venuesCopy[i].venue.rating === 'number') {
+        venuesCopy[i].i = i;
+        sorted.push(venuesCopy[i]);
+      }
+      sorted.sort(function(a, b) {
+        return (a.venue.rating - b.venue.rating);
+      });
+    }
+    return sorted;
+  },
   highRating: function(venues) {
     var sorted = [];
     var venuesCopy = venues.slice();
-      for (var i = 0; i < venuesCopy.length; i++) {
-        if (venuesCopy[i].venue.rating !== undefined || null) {
-          console.log(venuesCopy[i].venue.rating);
-            venuesCopy.sort(function(a, b) {
-          return b.venue.rating - a.venue.rating;
-          });
-        }
+    for (var i in venuesCopy) {
+      if (typeof venuesCopy[i].venue.rating === 'number') {
+        venuesCopy[i].i = i;
+        sorted.push(venuesCopy[i]);
       }
-      return sorted;
-    },
-  lowRating: function(venues) {
-    var sorted = [];
-      for (var i = 0; i < venues.length; i++) {
-        if (venues[i].venue.rating < 5 || venues[i].venue.rating === undefined) {
-          venues.sort(function(a, b) {
-            return a.venue.rating - b.venue.rating;
-          });
-        sorted.push(venues[i]);
-      }
+      sorted.sort(function(a, b) {
+        return (b.venue.rating - a.venue.rating);
+      });
     }
     return sorted;
   }
