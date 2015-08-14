@@ -10,7 +10,7 @@ To create a simple UI to let a user search for food trucks in a given location r
 ##Technologies
 1. HTML5
 1. Bootstrap
-1. Functional JS
+1. Functional JavaScript
 1. jQuery
 1. JSON/AJAX
 1. Foursquare API
