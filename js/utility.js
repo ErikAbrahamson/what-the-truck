@@ -1,4 +1,19 @@
 var get = {
+  initVenues: function(venues) {
+    currentVenues = venues;
+  },
+  Truck: function(venues) {
+    this.name = venues.venue.name;
+    this.rating = venues.venue.rating;
+    this.price = venues.venue.price.message;
+    this.location = venues.venue.location.address;
+    this.distance = (venues.venue.location.distance * 0.000621371)
+      .toFixed(1);
+    this.hours = venues.venue.hours.status;
+    this.open = venues.venue.hours.isOpen || false;
+    this.website = venues.venue.url;
+    this.menu = venues.venue.url;
+  },
   currentDate: function() {
     var today = new Date();
     var dd = today.getDate();
@@ -8,10 +23,6 @@ var get = {
     if (mm < 10) { mm = '0' + mm; }
     today = yyyy + mm + dd;
     return today;
-  },
-  initVenues: function(venues) {
-    currentVenues = venues;
-    console.log('Venues received!');
   },
   lowRating: function(venues) {
     var sorted = [];
@@ -40,5 +51,19 @@ var get = {
       });
     }
     return sorted;
-  }
+  },
+  // renderRating: function() {
+  //   switch(true) {
+  //     1-2 && 2-3:
+  //       return 1 star;
+  //     3-4 && 4-5:
+  //       return 2 stars;
+  //     5-6 && 6-7:
+  //       return 3 stars;
+  //     7-8 && 8-9:
+  //       return 4 stars;
+  //     9-10:
+  //       return 5 stars;
+  //   }
+  // }
 };
