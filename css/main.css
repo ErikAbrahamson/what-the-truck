@@ -22,3 +22,6 @@
 .info p {
   height: 16%;
 }
+.name-desc p {
+  line-height: 1.25em;
+}

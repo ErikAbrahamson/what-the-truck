@@ -1,0 +1,3 @@
+module.exports = {
+  client_secret: 'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE'
+};
