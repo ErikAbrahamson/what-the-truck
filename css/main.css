@@ -7,13 +7,18 @@
 }
 .logo {
   height: 100px;
-  border: 1px solid black;
+}
+.logo img {
+  height: 100px;
+  width: 100px;
 }
 .name-desc {
   height: 100px;
-  border: 1px solid black;
 }
 .info {
   height: 100px;
-  border: 1px solid black;
+  text-align: center;
+}
+.info p {
+  height: 16%;
 }
