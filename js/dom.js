@@ -28,7 +28,11 @@ $(document).ready(function() {
       }
     });
   }, 300);
-  // currentVenues[23].venue.categories[0].id
-  // 4bf58dd8d48988d1cb941735
-  // DOM stuff here
+  $(window).on('load', function() {
+    var truck = $('<div>')
+      .append('<span>Test</span')
+      .addClass('truck')
+      .hide().delay(200).fadeIn(400);
+    $('#venue-list').append(truck);
+  });
 });
