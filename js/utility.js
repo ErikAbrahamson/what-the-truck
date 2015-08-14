@@ -1,22 +1,22 @@
 var get = {
-  Truck: function(venues) {
-    this.name = venues.venue.name;
-    this.rating = venues.venue.rating || undefined;
-    this.price = venues.venue.price.message;
-    this.location = venues.venue.location.address;
-    this.distance = +(venues.venue.location.distance * 0.000621371)
+  Truck: function(trucks) {
+    this.name = trucks.venue.name;
+    this.rating = trucks.venue.rating || undefined;
+    this.price = trucks.venue.price.message;
+    this.location = trucks.venue.location.address;
+    this.distance = +(trucks.venue.location.distance * 0.000621371)
       .toFixed(1);
-    this.hours = venues.venue.hours.status;
-    this.open = venues.venue.hours.isOpen || false;
-    this.website = venues.venue.url || undefined;
-    this.menu = venues.venue.url || undefined;
-    this.twitter = venues.venue.contact.twitter || undefined;
-    this.formattedPhone = venues.venue.contact.formattedPhone || undefined;
-    this.phone = venues.venue.contact.phone;
+    this.hours = trucks.venue.hours.status;
+    this.open = trucks.venue.hours.isOpen || false;
+    this.website = trucks.venue.url || undefined;
+    this.menu = trucks.venue.url || undefined;
+    this.twitter = trucks.venue.contact.twitter || undefined;
+    this.formattedPhone = trucks.venue.contact.formattedPhone || undefined;
+    this.phone = trucks.venue.contact.phone;
   },
-    newTrucks: function(venues) {
-    currentVenues = venues;
-    currentTrucks = currentVenues.map(function(truck) {
+    newTrucks: function(trucks) {
+    currenttrucks = trucks;
+    currentTrucks = currenttrucks.map(function(truck) {
       return new get.Truck(truck);
     });
   },
@@ -30,30 +30,30 @@ var get = {
     today = yyyy + mm + dd;
     return today;
   },
-  lowRating: function(venues) {
+  lowRating: function(trucks) {
     var sorted = [];
-    var venuesCopy = venues.slice();
-    for (var i in venuesCopy) {
-      if (typeof venuesCopy[i].venue.rating === 'number') {
-        venuesCopy[i].i = i;
-        sorted.push(venuesCopy[i]);
+    var trucksCopy = trucks.slice();
+    for (var i in trucksCopy) {
+      if (typeof trucksCopy[i].rating === 'number') {
+        trucksCopy[i].i = i;
+        sorted.push(trucksCopy[i]);
       }
       sorted.sort(function(a, b) {
-        return (a.venue.rating - b.venue.rating);
+        return (a.rating - b.rating);
       });
     }
     return sorted;
   },
-  highRating: function(venues) {
+  highRating: function(trucks) {
     var sorted = [];
-    var venuesCopy = venues.slice();
-    for (var i in venuesCopy) {
-      if (typeof venuesCopy[i].venue.rating === 'number') {
-        venuesCopy[i].i = i;
-        sorted.push(venuesCopy[i]);
+    var trucksCopy = trucks.slice();
+    for (var i in trucksCopy) {
+      if (typeof trucksCopy[i].rating === 'number') {
+        trucksCopy[i].i = i;
+        sorted.push(trucksCopy[i]);
       }
       sorted.sort(function(a, b) {
-        return (b.venue.rating - a.venue.rating);
+        return (b.rating - a.rating);
       });
     }
     return sorted;
