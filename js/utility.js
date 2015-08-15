@@ -23,10 +23,13 @@ var get = {
   render: function() {
     $(document).ready(function() {
       var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
-      var nameDesc = $('<div>').addClass('name-desc col-xs-7');
+      var logo = $('<div>').addClass('logo col-xs-2');
+      var logoImg = $('<img>').addClass('img-circle').attr('src','img/default-logo.png');
+      logo = logo.append(logoImg);
       for (var i = 0; i < currentTrucks.length; i++) {
-        truck.text(currentTrucks[i].name);
-        $('#venue-list').append(truck);
+        truck.append(logo);
+        // truck.append('<h4>' + currentTrucks[i].name + '</h4');
+        $('#venue-list').append(truck).hide().fadeIn(400);
       }
     });
   },
