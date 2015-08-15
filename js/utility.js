@@ -14,9 +14,20 @@ var get = {
     this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'No phone number listed';
   },
   newTrucks: function(trucks) {
-    currenttrucks = trucks;
-    currentTrucks = currenttrucks.map(function(truck) {
+    currentTrucks = trucks;
+    currentTrucks = currentTrucks.map(function(truck) {
     return new get.Truck(truck);
+    });
+    get.render();
+  },
+  render: function() {
+    $(document).ready(function() {
+      var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
+      var nameDesc = $('<div>').addClass('name-desc col-xs-7');
+      for (var i = 0; i < currentTrucks.length; i++) {
+        truck.text(currentTrucks[i].name);
+        $('#venue-list').append(truck);
+      }
     });
   },
   currentDate: function() {
