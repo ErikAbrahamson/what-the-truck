@@ -26,9 +26,17 @@ var get = {
       var logo = $('<div>').addClass('logo col-xs-2');
       var logoImg = $('<img>').addClass('img-circle').attr('src','img/default-logo.png');
       logo = logo.append(logoImg);
+
+      var nameDesc = $('<div>').addClass('name-desc col-xs-7');
+      var name = $('<h4>').attr('id', 'title');
+      var desc = $('<p>');
+      var spanLeft = $('<span>').addClass('left');
+      var spanRight = $('<span>').addClass('right');
+      nameDesc = nameDesc.append(name).append(desc).append(spanLeft).append(spanRight);
+      truck = truck.append(logo).append(nameDesc);
       for (var i = 0; i < currentTrucks.length; i++) {
-        truck.append(logo);
-        // truck.append('<h4>' + currentTrucks[i].name + '</h4');
+        truck.find('h4').text(currentTrucks[i].name);
+        console.log($('#title').eq(i));
         $('#venue-list').append(truck).hide().fadeIn(400);
       }
     });
