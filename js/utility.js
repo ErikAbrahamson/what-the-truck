@@ -16,13 +16,14 @@ var get = {
   newTrucks: function(trucks) {
     currentTrucks = trucks;
     currentTrucks = currentTrucks.map(function(truck) {
-    return new get.Truck(truck);
+      return new get.Truck(truck);
     });
     get.render();
   },
   render: function() {
     $(document).ready(function() {
       var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
+
       var logo = $('<div>').addClass('logo col-xs-2');
       var logoImg = $('<img>').addClass('img-circle').attr('src','img/default-logo.png');
       logo = logo.append(logoImg);
@@ -33,10 +34,19 @@ var get = {
       var spanLeft = $('<span>').addClass('left');
       var spanRight = $('<span>').addClass('right');
       nameDesc = nameDesc.append(name).append(desc).append(spanLeft).append(spanRight);
-      truck = truck.append(logo).append(nameDesc);
+
+      var info = $('<div>').addClass('info col-xs-3');
+      var distance = $('<p>').append('<strong>');
+      var rating = $('<p>').append('<strong>');
+      var price = $('<p>').append('<strong>');
+      var twitter = $('<p>').append('<img src="img/twitter-bird.svg">').append('<a>');
+      var phone = $('<p>').append('<strong>').append('<a>');
+      info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
+
+      truck = truck.append(logo).append(nameDesc).append(info);
+
       for (var i = 0; i < currentTrucks.length; i++) {
         truck.find('h4').text(currentTrucks[i].name);
-        console.log($('#title').eq(i));
         $('#venue-list').append(truck).hide().fadeIn(400);
       }
     });
