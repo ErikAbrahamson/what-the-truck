@@ -16,6 +16,7 @@
     right: 15px;
     max-height: 125px;
     max-width: 125px;
+    border: 5px solid white;
   }
   .name-desc {
     height: 125px;

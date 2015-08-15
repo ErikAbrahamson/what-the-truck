@@ -12,6 +12,7 @@ var get = {
     this.twitter = trucks.venue.contact.twitter ? trucks.venue.contact.twitter : 'N/A';
     this.formattedPhone = trucks.venue.contact.formattedPhone ? trucks.venue.contact.formattedPhone : 'No phone number listed';
     this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'N/A';
+    this.photos = trucks.venue.photos.groups[0] ? trucks.venue.photos.groups[0].items : 'N/A';
   },
   newTrucks: function(trucks) {
     currentTrucks = trucks;
@@ -25,7 +26,7 @@ var get = {
       var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
 
       var logo = $('<div>').addClass('logo col-xs-2');
-      var logoImg = $('<img>').addClass('img-circle').attr('src','img/default-logo.png');
+      var logoImg = $('<img>').addClass('image img-circle').attr('src','img/default-logo.png');
       logo = logo.append(logoImg);
 
       var nameDesc = $('<div>').addClass('name-desc col-xs-7');
@@ -46,6 +47,14 @@ var get = {
       truck = truck.append(logo).append(nameDesc).append(info);
 
       for (var i = 0; i < currentTrucks.length; i++) {
+        truck.find('.image').attr('src', currentTrucks[i].photos[0].prefix + '125x125' + currentTrucks[i].photos[0].suffix);
+        $('img')
+          .on('load', function() {
+            $(this).css('visibility', 'visible');
+          })
+          .on('error', function() {
+            $(this).attr('src', 'img/default-logo.png');
+          });
         truck.find('h4').text(currentTrucks[i].name);
         truck.find('.description').text('Placeholder Description');
         truck.find('.distance').html('<p><strong>' + currentTrucks[i].distance + '</strong> miles away</p>');
