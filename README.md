@@ -1,11 +1,12 @@
 #What The Truck
 ##Purpose:
-To create a simple UI to let a user search for food trucks in a given location range.
+To create a simple UI that gives the user a list of the closest food trucks and information.
 
 ##Features
-1. Location-based results with real-time data from either Foursquare or Twitter
+1. Information such as open status, ratings, location, distance from user, social media links, and menus.
 1. Responsive design
-1. Minimal latency
+1. Minimal and easy to read UI
+1. Real-time data
 
 ##Technologies
 1. HTML5
@@ -17,15 +18,18 @@ To create a simple UI to let a user search for food trucks in a given location r
 1. ~~*possibly* Twitter API~~
 
 ##Constraints
-1. Quality of API data
-1. ~~Limits of API data~~
+1. Quality & limits of API data
 1. ~~Alternative solutions~~
 
 ##Procedure for project
 1. ~~Understand Foursquare API~~
 1. ~~If not sufficient, look at Twitter API~~
 1. ~~Define what information will be needed to track trucks~~
-1. Optimize UI to continually compliment live API data
-1. Create search query parameters
-1. Test information & search results
+1. ~~Optimize UI to continually compliment live API data~~
+1. ~~Test information & results~~
 1. Create responsive bootstrap layout
+
+##Stretch Goals
+1. Make platform API agnostic
+1. Cross-reference data values between APIs and return best quality data
+1. Geolocation

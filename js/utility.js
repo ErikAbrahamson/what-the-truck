@@ -67,7 +67,7 @@ var get = {
           }});
           truck.find('.phone').html(function() {
             if (currentTrucks[i].phone !== 'N/A') {
-              return '<a href="tel:+' + currentTrucks[i].phone + '">' + currentTrucks[i].formattedPhone + '</a>';
+              return '\u260E ' + '<a href="tel:+' + currentTrucks[i].phone + '">' +  currentTrucks[i].formattedPhone + '</a>';
             } else {
               return '';
             }});
