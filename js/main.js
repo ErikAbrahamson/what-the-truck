@@ -20,7 +20,6 @@ $(document).ready(function() {
           venues.push(unfiltered[i]);
         }
         get.newTrucks(venues);
-        console.log(venues);
       }
     },
     error: function(error) {
@@ -28,4 +27,3 @@ $(document).ready(function() {
     }
   });
 });
-

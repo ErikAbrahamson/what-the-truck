@@ -13,10 +13,10 @@ var get = {
     this.formattedPhone = trucks.venue.contact.formattedPhone ? trucks.venue.contact.formattedPhone : 'No phone number listed';
     this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'No phone number listed';
   },
-    newTrucks: function(trucks) {
+  newTrucks: function(trucks) {
     currenttrucks = trucks;
     currentTrucks = currenttrucks.map(function(truck) {
-      return new get.Truck(truck);
+    return new get.Truck(truck);
     });
   },
   currentDate: function() {

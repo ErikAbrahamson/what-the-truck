@@ -1,27 +1,44 @@
 #venue-list {
-  min-height: 100px;
+  min-height: 125px;
 }
 .truck {
   display: block;
-  height: 100px;
+  height: 125px;
+  border-radius: 75px 5px 5px 75px;
+  margin: 5px 0;
 }
 .logo {
-  height: 100px;
+  height: 125px;
 }
 .logo img {
-  height: 100px;
-  width: 100px;
+  position: absolute;
+  left: 1px;
+  height: 125px;
+  width: 125px;
 }
 .name-desc {
-  height: 100px;
+  height: 125px;
+  font-weight: 300;
 }
 .info {
-  height: 100px;
-  text-align: center;
+  height: 125px;
+  text-align: right;
 }
 .info p {
-  height: 16%;
+  height: 12%;
+}
+p img {
+  width: 15px;
+  height: auto;
 }
 .name-desc p {
   line-height: 1.25em;
+}
+.left {
+  float: left;
+  font-weight: 500;
+}
+.right {
+  float: right;
+  font-weight: 500;
 }
