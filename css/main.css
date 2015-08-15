@@ -1,44 +1,99 @@
-#venue-list {
-  min-height: 125px;
+@media screen and (max-width: 2880px) {
+  #venue-list {
+    min-height: 125px;
+  }
+  .truck {
+    display: block;
+    height: 125px;
+    border-radius: 75px 5px 5px 75px;
+    margin: 5px 0;
+  }
+  .logo {
+    height: 125px;
+  }
+  .logo img {
+    position: relative;
+    right: 15px;
+    max-height: 125px;
+    max-width: 125px;
+  }
+  .name-desc {
+    height: 125px;
+    font-weight: 300;
+  }
+  .info {
+    height: 125px;
+    text-align: right;
+  }
+  .info p {
+    height: 12%;
+  }
+  p img {
+    width: 15px;
+    height: auto;
+  }
+  .name-desc p {
+    line-height: 1.25em;
+  }
+  .left {
+    position: relative;
+    top: 20px;
+    float: left;
+    font-weight: 500;
+  }
+  .right {
+    position: relative;
+    top: 20px;
+    float: right;
+    font-weight: 500;
+  }
 }
-.truck {
-  display: block;
-  height: 125px;
-  border-radius: 75px 5px 5px 75px;
-  margin: 5px 0;
+@media screen and (max-width: 1000px) {
+  .left,
+  .right {
+    top: 5px;
+  }
 }
-.logo {
-  height: 125px;
+@media screen and (max-width: 720px) {
+  .name-desc {
+    position: relative;
+    left: 25px;
+    bottom: 7px;
+  }
 }
-.logo img {
-  position: absolute;
-  left: 1px;
-  height: 125px;
-  width: 125px;
+@media screen and (max-width: 665px) {
+  .left,
+  .right {
+    top: -7px;
+  }
 }
-.name-desc {
-  height: 125px;
-  font-weight: 300;
-}
-.info {
-  height: 125px;
-  text-align: right;
-}
-.info p {
-  height: 12%;
-}
-p img {
-  width: 15px;
-  height: auto;
-}
-.name-desc p {
-  line-height: 1.25em;
-}
-.left {
-  float: left;
-  font-weight: 500;
-}
-.right {
-  float: right;
-  font-weight: 500;
+@media screen and (max-width: 580px) {
+  p,
+  span {
+    font-size: 12px;
+  }
+  .name-desc p {
+    position: relative;
+    bottom: 5px;
+  }
+  .truck,
+  .logo,
+  .info,
+  .name-desc {
+    height: 110px;
+  }
+  .logo img {
+    width: 110px;
+  }
+  .info {
+    position: relative;
+    left: 10px;
+  }
+  .info p {
+    height: 10%
+  }
+  .left,
+  .right {
+    top: -15px;
+  }
 }
