@@ -1,7 +1,7 @@
 var get = {
   Truck: function(trucks) {
     this.name = trucks.venue.name ? trucks.venue.name : 'n/a';
-    this.rating = trucks.venue.rating ? trucks.venue.rating : 'This truck has not been rated yet';
+    this.rating = trucks.venue.rating ? trucks.venue.rating : 'N/A';
     this.price = trucks.venue.price ? trucks.venue.price.message : 'n/a';
     this.location = trucks.venue.location ? trucks.venue.location.address : 'n/a';
     this.distance = +(trucks.venue.location.distance * 0.000621371).toFixed(1) ? +(trucks.venue.location.distance * 0.000621371).toFixed(1) : 'n/a';
@@ -9,9 +9,9 @@ var get = {
     this.open = trucks.venue.hours ? trucks.venue.hours.isOpen : 'n/a';
     this.website = trucks.venue.url ? trucks.venue.url : 'No website posted';
     this.menu = trucks.venue.url ? trucks.venue.url : 'No menu posted';
-    this.twitter = trucks.venue.contact.twitter ? trucks.venue.contact.twitter : 'No Twitter account listed';
+    this.twitter = trucks.venue.contact.twitter ? trucks.venue.contact.twitter : 'N/A';
     this.formattedPhone = trucks.venue.contact.formattedPhone ? trucks.venue.contact.formattedPhone : 'No phone number listed';
-    this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'No phone number listed';
+    this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'N/A';
   },
   newTrucks: function(trucks) {
     currentTrucks = trucks;
@@ -30,23 +30,50 @@ var get = {
 
       var nameDesc = $('<div>').addClass('name-desc col-xs-7');
       var name = $('<h4>').attr('id', 'title');
-      var desc = $('<p>');
+      var desc = $('<p>').addClass('description');
       var spanLeft = $('<span>').addClass('left');
       var spanRight = $('<span>').addClass('right');
       nameDesc = nameDesc.append(name).append(desc).append(spanLeft).append(spanRight);
 
       var info = $('<div>').addClass('info col-xs-3');
-      var distance = $('<p>').append('<strong>');
-      var rating = $('<p>').append('<strong>');
-      var price = $('<p>').append('<strong>');
-      var twitter = $('<p>').append('<img src="img/twitter-bird.svg">').append('<a>');
-      var phone = $('<p>').append('<strong>').append('<a>');
+      var distance = $('<p>').addClass('distance');
+      var rating = $('<p>').append('<strong class="rating">');
+      var price = $('<p>').addClass('price');
+      var twitter = $('<p>').addClass('twitter');
+      var phone = $('<p>').addClass('phone');
       info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
 
       truck = truck.append(logo).append(nameDesc).append(info);
 
       for (var i = 0; i < currentTrucks.length; i++) {
         truck.find('h4').text(currentTrucks[i].name);
+        truck.find('.description').text('Placeholder Description');
+        truck.find('.distance').html('<p><strong>' + currentTrucks[i].distance + '</strong> miles away</p>');
+        truck.find('.left').text(currentTrucks[i].location);
+        truck.find('.right').text(currentTrucks[i].hours);
+        truck.find('.price').text(function() {
+          if (currentTrucks[i].price === 'Cheap') {
+            return '$ ' + currentTrucks[i].price;
+          } else if (currentTrucks[i].price === 'Moderate') {
+            return '$$ ' + currentTrucks[i].price;
+          } else if (currentTrucks[i].price !== 'Cheap' || 'Moderate') {
+            return '$$$ ' + currentTrucks[i].price;
+          }});
+          truck.find('.twitter').html(function() {
+            if (currentTrucks[i].twitter !== 'N/A') {
+              return '<img src="img/twitter-bird.svg"><a href="https://twitter.com/' + currentTrucks[i].twitter + '"> @' + currentTrucks[i].twitter + '</a>';
+            } else {
+              return '';
+          }});
+          truck.find('.phone').html(function() {
+            if (currentTrucks[i].phone !== 'N/A') {
+              return '<a href="tel:+' + currentTrucks[i].phone + '">' + currentTrucks[i].formattedPhone + '</a>';
+            } else {
+              return '';
+            }});
+            truck.find('.rating').text(get.renderRating());
+
+
         $('#venue-list').append(truck).hide().fadeIn(400);
       }
     });
@@ -89,18 +116,28 @@ var get = {
     }
     return sorted;
   },
-  // renderRating: function() {
-  //   switch(true) {
-  //     1-2 && 2-3:
-  //       return 1 star;
-  //     3-4 && 4-5:
-  //       return 2 stars;
-  //     5-6 && 6-7:
-  //       return 3 stars;
-  //     7-8 && 8-9:
-  //       return 4 stars;
-  //     9-10:
-  //       return 5 stars;
-  //   }
-  // }
+  renderRating: function() {
+    var stars = [
+      ['\u2605','\u2606','\u2606','\u2606','\u2606'],
+      ['\u2605','\u2605','\u2606','\u2606','\u2606'],
+      ['\u2605','\u2605','\u2605','\u2606','\u2606'],
+      ['\u2605','\u2605','\u2605','\u2605','\u2606'],
+      ['\u2605','\u2605','\u2605','\u2605','\u2605']
+    ];
+    for (var i = 0; i < currentTrucks.length; i++) {
+      if (currentTrucks[i].rating !== 'N/A') {
+        if (currentTrucks[i].rating <= 3) {
+          return stars[0].join('');
+        } else if (currentTrucks[i].rating <= 5) {
+          return stars[1].join('');
+        } else if (currentTrucks[i].rating <= 7) {
+          return stars[2].join('');
+        } else if(currentTrucks[i].rating <= 9) {
+          return stars[3].join('');
+        } else {
+          return stars[4].join('');
+        }
+      }
+    }
+  }
 };
