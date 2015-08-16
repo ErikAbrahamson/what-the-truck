@@ -23,11 +23,11 @@ To create a simple UI that displays intuitive, real-time information for food tr
 1. ~~Alternative solutions~~
 
 ##Procedure for project
-1. ~~Learn Foursquare API~~
+1. ~~Digest Foursquare API~~
 1. ~~If not sufficient, look at Twitter API~~
-1. ~~Define what information will be needed to track trucks~~
+1. ~~Define keys from API~~
 1. ~~Optimize UI to continually compliment live API data~~
-1. ~~Test information & results~~
+1. ~~Test data against request~~
 1. ~~Create responsive bootstrap layout.~~
 1. Fix lazy & shitty css
 1. Beautify
