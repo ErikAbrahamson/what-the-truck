@@ -31,5 +31,5 @@ To create a simple UI that gives the user a list of the closest food trucks and 
 
 ##Stretch Goals
 1. Make platform API agnostic so I can:
-1. Cross-reference data values between APIs and return best quality data; i.e. Yelp, Google Places, etc.
+1. Cross-reference data values between APIs and return best quality data; i.e., Yelp, Google Places, etc.
 1. Geolocation. Not really a stretch.
