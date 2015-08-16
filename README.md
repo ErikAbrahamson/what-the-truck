@@ -29,6 +29,7 @@ To create a simple UI that displays intuitive, real-time information for food tr
 1. ~~Optimize UI to continually compliment live API data~~
 1. ~~Test information & results~~
 1. ~~Create responsive bootstrap layout.~~
+1. Fix lazy & shitty css
 1. Beautify
 
 ##Stretch Goals
