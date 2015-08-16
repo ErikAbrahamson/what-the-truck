@@ -1,12 +1,12 @@
-#What The Truck
+#What The Truck!
 ##Purpose:
 To create a simple UI that displays intuitive, real-time information for food trucks.
 
 ##Features
-1. Information such as open status, ratings, location, distance from user, social media links, and menus.
-1. Responsive design
-1. Minimal and easy to read UI
-1. Real-time data
+1. Real-time, relevant consumer data
+1. Minimal and easy-to-read UI
+1. Fair and relative rating system derived from Foursquare's 1-10 system.
+1. Random user comments. Emphasis on *random*.
 
 ##Technologies
 1. HTML5
