@@ -1,6 +1,6 @@
 #What The Truck
 ##Purpose:
-To create a simple UI that gives the user a list of the closest food trucks and information.
+To create a simple UI that displays intuitive, real-time information for food trucks.
 
 ##Features
 1. Information such as open status, ratings, location, distance from user, social media links, and menus.
@@ -27,9 +27,9 @@ To create a simple UI that gives the user a list of the closest food trucks and 
 1. ~~Define what information will be needed to track trucks~~
 1. ~~Optimize UI to continually compliment live API data~~
 1. ~~Test information & results~~
-1. Create responsive bootstrap layout
+1. Create responsive bootstrap layout.
 
 ##Stretch Goals
 1. Make platform API agnostic so I can:
-1. Cross-reference data values between APIs and return best quality data; i.e., Yelp, Google Places, etc.
+1. Cross-reference data between APIs and return the most relevant data from a given source; i.e., Yelp, Google Places, etc.
 1. Geolocation. Not really a stretch.

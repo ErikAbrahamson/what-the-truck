@@ -24,7 +24,9 @@ var get = {
   },
   render: function() {
     $(document).ready(function() {
-      var truck = $('<div>').addClass('truck col-xs-2-offset-6');
+      var truck = $('<div>')
+        .addClass('truck col-xs-2-offset-6')
+        .addClass('knockout-around');
 
       var logo = $('<div>').addClass('logo col-xs-2');
       var logoImg = $('<img>').addClass('image img-circle').attr('src','img/default-logo.png');

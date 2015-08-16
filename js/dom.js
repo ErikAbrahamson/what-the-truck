@@ -1,18 +1,18 @@
-var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
-var logo = $('<div>').addClass('logo col-xs-2')
-  .append('<img src="img/default-logo.png">');
-var nameDesc = $('<div>').addClass('name-desc col-xs-7');
-var info = $('<div>').addClass('info col-xs-3');
+// var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
+// var logo = $('<div>').addClass('logo col-xs-2')
+//   .append('<img src="img/default-logo.png">');
+// var nameDesc = $('<div>').addClass('name-desc col-xs-7');
+// var info = $('<div>').addClass('info col-xs-3');
 
-$('#sort-rating').on('click', function() {
-  $('#venue-list').append(truck);
-  truck.append(logo);
-  truck.append(nameDesc);
-  console.log(nameDesc);
-  truck.append(info);
-  $('h4').text('hello');
-  $('strong').text('strong');
-});
+// $('#sort-rating').on('click', function() {
+//   $('#venue-list').append(truck);
+//   truck.append(logo);
+//   truck.append(nameDesc);
+//   console.log(nameDesc);
+//   truck.append(info);
+//   $('h4').text('hello');
+//   $('strong').text('strong');
+// });
 
 
 // console.log(get.currentTrucks);
