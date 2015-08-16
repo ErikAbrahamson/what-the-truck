@@ -1,7 +1,7 @@
 #What The Truck!
 ![](img/i1-demo.png)
 ##Purpose
-To create a simple UI that displays intuitive, real-time information for food trucks.
+To create a simple UI that displays intuitive, real-time information from food truck venues.
 
 ##Features
 1. Live, relevant venue information
