@@ -91,7 +91,7 @@ var get = {
             } else {
               return '';
             }});
-            truck.find('.rating').text(get.renderRating());
+            truck.find('.rating').text(get.renderRating(currentTrucks[i].rating));
 
 
         $('#venue-list').append(truck).hide().fadeIn(400);
@@ -136,7 +136,7 @@ var get = {
     }
     return sorted;
   },
-  renderRating: function() {
+  renderRating: function(rating) {
     var stars = [
       ['\u2605','\u2606','\u2606','\u2606','\u2606'],
       ['\u2605','\u2605','\u2606','\u2606','\u2606'],
@@ -144,20 +144,18 @@ var get = {
       ['\u2605','\u2605','\u2605','\u2605','\u2606'],
       ['\u2605','\u2605','\u2605','\u2605','\u2605']
     ];
-    for (var i = 0; i < currentTrucks.length; i++) {
-      if (currentTrucks[i].rating !== 'N/A') {
-        if (currentTrucks[i].rating <= 3) {
-          return stars[0].join('');
-        } else if (currentTrucks[i].rating <= 5) {
-          return stars[1].join('');
-        } else if (currentTrucks[i].rating <= 7) {
-          return stars[2].join('');
-        } else if(currentTrucks[i].rating <= 9) {
-          return stars[3].join('');
-        } else {
-          return stars[4].join('');
-        }
+      if (rating <= 3) {
+        return stars[0].join('');
+      } else if (rating <= 6) {
+        return stars[1].join('');
+      } else if (rating <= 7.5) {
+        return stars[2].join('');
+      } else if (rating <= 8) {
+        return stars[3].join('');
+      } else if (rating <= 9) {
+        return stars[4].join('');
+      } else {
+        return rating;
       }
-    }
   }
 };
