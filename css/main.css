@@ -22,6 +22,9 @@
     height: 125px;
     font-weight: 300;
   }
+  h4 {
+    font-weight: 600;
+  }
   .info {
     height: 125px;
     text-align: right;
@@ -34,7 +37,7 @@
     height: auto;
   }
   .name-desc p {
-    line-height: 1.25em;
+    line-height: 1.10em;
   }
   .left {
     position: relative;

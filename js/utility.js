@@ -13,6 +13,7 @@ var get = {
     this.formattedPhone = trucks.venue.contact.formattedPhone ? trucks.venue.contact.formattedPhone : 'No phone number listed';
     this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'N/A';
     this.photos = trucks.venue.photos.groups[0] ? trucks.venue.photos.groups[0].items : 'N/A';
+    this.comment = trucks.tips ? trucks.tips[0].text : 'N/A';
   },
   newTrucks: function(trucks) {
     currentTrucks = trucks;
@@ -61,7 +62,12 @@ var get = {
             $(this).attr('src', 'img/default-logo.png');
           });
         truck.find('h4').text(currentTrucks[i].name);
-        truck.find('.description').text('Placeholder Description');
+        truck.find('.description').html(function() {
+          if (currentTrucks[i].comment !== 'N/A') {
+            return '<em>"' + currentTrucks[i].comment + '"</em>';
+          } else {
+            return '<em>No description yet</em>';
+          }});
         truck.find('.distance').html('<p><strong>' + currentTrucks[i].distance + '</strong> miles away</p>');
         truck.find('.left').text(currentTrucks[i].location);
         truck.find('.right').text(currentTrucks[i].hours);
