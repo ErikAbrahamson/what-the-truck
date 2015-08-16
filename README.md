@@ -28,7 +28,8 @@ To create a simple UI that displays intuitive, real-time information for food tr
 1. ~~Define what information will be needed to track trucks~~
 1. ~~Optimize UI to continually compliment live API data~~
 1. ~~Test information & results~~
-1. Create responsive bootstrap layout.
+1. ~~Create responsive bootstrap layout.~~
+1. Beautify
 
 ##Stretch Goals
 1. Make platform API agnostic so I can:
