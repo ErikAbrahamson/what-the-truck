@@ -23,7 +23,7 @@ var get = {
   },
   render: function() {
     $(document).ready(function() {
-      var truck = $('<div>').addClass('truck bg-info col-xs-2-offset-6');
+      var truck = $('<div>').addClass('truck col-xs-2-offset-6');
 
       var logo = $('<div>').addClass('logo col-xs-2');
       var logoImg = $('<img>').addClass('image img-circle').attr('src','img/default-logo.png');
@@ -47,6 +47,11 @@ var get = {
       truck = truck.append(logo).append(nameDesc).append(info);
 
       for (var i = 0; i < currentTrucks.length; i++) {
+        if (currentTrucks[i].open !== 'N/A' && currentTrucks[i].open === true) {
+          truck.removeClass('bg-info').addClass('bg-success');
+        } else {
+          truck.removeClass('bg-success').addClass('bg-info');
+        }
         truck.find('.image').attr('src', currentTrucks[i].photos[0].prefix + '125x125' + currentTrucks[i].photos[0].suffix);
         $('img')
           .on('load', function() {

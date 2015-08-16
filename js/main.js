@@ -6,6 +6,7 @@ $(document).ready(function() {
       ll: '39.7,-104.9',
       query: 'Food Truck',
       venuePhotos: 1,
+      // openNow: 1,
       sortByDistance: 1,
       client_id: 'L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP',
       client_secret: 'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE',
