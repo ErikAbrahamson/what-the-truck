@@ -1,6 +1,6 @@
 #What The Truck!
 ![](img/i1-demo.png)
-##Purpose:
+##Purpose
 To create a simple UI that displays intuitive, real-time information for food trucks.
 
 ##Features
@@ -23,7 +23,7 @@ To create a simple UI that displays intuitive, real-time information for food tr
 1. ~~Alternative solutions~~
 
 ##Procedure for project
-1. ~~Understand Foursquare API~~
+1. ~~Learn Foursquare API~~
 1. ~~If not sufficient, look at Twitter API~~
 1. ~~Define what information will be needed to track trucks~~
 1. ~~Optimize UI to continually compliment live API data~~
