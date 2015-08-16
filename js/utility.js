@@ -92,6 +92,11 @@ var get = {
               return '';
             }});
             truck.find('.rating').text(get.renderRating(currentTrucks[i].rating));
+            if (typeof currentTrucks[i].rating === 'number') {
+              truck.find('.rating').css('color', 'black');
+            } else {
+              truck.find('.rating').css('color', '#D8D8D8');
+            }
 
 
         $('#venue-list').append(truck).hide().fadeIn(400);
@@ -144,6 +149,7 @@ var get = {
       ['\u2605','\u2605','\u2605','\u2605','\u2606'],
       ['\u2605','\u2605','\u2605','\u2605','\u2605']
     ];
+    var noRating = ['\u2606','\u2606','\u2606','\u2606','\u2606'].join('');
       if (rating <= 3) {
         return stars[0].join('');
       } else if (rating <= 6) {
@@ -155,7 +161,7 @@ var get = {
       } else if (rating <= 9) {
         return stars[4].join('');
       } else {
-        return rating;
+        return noRating;
       }
   }
 };

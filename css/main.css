@@ -1,3 +1,6 @@
+body {
+  background-image: url(../img/bg.jpg);
+}
 @media screen and (max-width: 2880px) {
   #venue-list {
     min-height: 125px;
@@ -16,7 +19,10 @@
     right: 15px;
     max-height: 125px;
     max-width: 125px;
-    border: 5px solid white;
+    border: 5px solid #F8F8F8;
+  }
+  .rating {
+    color: black;
   }
   .name-desc {
     height: 125px;
