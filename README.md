@@ -10,12 +10,14 @@ To create a simple UI that displays intuitive, real-time information from food t
 1. Random user comments. Emphasis on *random*
 
 ##Technologies
-1. HTML5
+1. HTML5 & CSS3
 1. Bootstrap
 1. Functional JavaScript
+1. ~~D3~~
 1. jQuery
 1. JSON/AJAX
 1. Foursquare API
+1. ~~AngularJS~~
 1. ~~*possibly* Twitter API~~
 
 ##Constraints
@@ -29,7 +31,7 @@ To create a simple UI that displays intuitive, real-time information from food t
 1. ~~Optimize UI to continually compliment live API data~~
 1. ~~Test data against request~~
 1. ~~Create responsive bootstrap layout.~~
-1. Fix lazy & shitty css
+1. Fix lazy & shitty CSS
 1. Beautify
 
 ##Stretch Goals
