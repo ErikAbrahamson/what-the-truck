@@ -49,9 +49,9 @@ var get = {
       info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
       truck = truck.append(logo).append(nameDesc).append(info);
       if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
-        truck.removeClass('bg-info').addClass('bg-success');
+        truck.removeClass('closed').addClass('open');
       } else {
-        truck.removeClass('bg-success').addClass('bg-info');
+        truck.removeClass('open').addClass('closed');
       }
       truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
       $('img')

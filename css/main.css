@@ -2,8 +2,27 @@ body {
   background-image: url(../img/bg.jpg);
 }
 @media screen and (max-width: 2880px) {
+  h1 {
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    font-size: 40px;
+  }
+  p, h3, h4, span, em, strong {
+    font-family: 'Archivo Narrow', sans-serif;
+  }
+  header h4 {
+    font-size: 20px;
+    font-weight: 200;
+    font-style: italic;
+  }
   #venue-list {
     min-height: 125px;
+  }
+  .open {
+    background: linear-gradient(to right, transparent, #7f7);
+  }
+  .closed {
+    background: linear-gradient(to right, transparent, #f8f);
   }
   .truck {
     display: block;
