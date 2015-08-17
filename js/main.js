@@ -29,6 +29,18 @@ $(document).ready(function() {
   });
   $('#sort-rating').click(function(event) {
     event.preventDefault();
-    get.highRating(currentTrucks);
+    if ($('.truck').eq(0).find('.rating').text() === '★★★★★') {
+      get.lowRating(currentTrucks);
+    } else {
+      get.highRating(currentTrucks);
+    }
+  });
+  $('#sort-distance').click(function(event) {
+    event.preventDefault();
+    if (+($('.truck').eq(0).find('.distance').text()[0] > 5)) {
+      get.closest(currentTrucks);
+    } else {
+      get.farthest(currentTrucks);
+    }
   });
 });
