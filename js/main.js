@@ -27,4 +27,8 @@ $(document).ready(function() {
       console.log('There was a problem with the request:' + error);
     }
   });
+  $('#sort-rating').click(function(event) {
+    event.preventDefault();
+    get.highRating(currentTrucks);
+  });
 });

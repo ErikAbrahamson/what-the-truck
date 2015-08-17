@@ -21,7 +21,8 @@ var get = {
     trucks.map(function(truck) {
       currentTrucks.push(new get.Truck(truck));
     });
-    // get.render(currentTrucks);
+    get.clearTrucks();
+    get.initTrucks();
     return currentTrucks;
   },
   render: function(trucks) {
@@ -124,10 +125,9 @@ var get = {
     today = yyyy + mm + dd;
     return today;
   },
-  lowRating: function(trucks) {
+  highRating: function(trucks) {
     var notRated = [];
     var rated = [];
-   console.log(currentTrucks);
     for (var i in trucks) {
       if (typeof trucks[i].rating !== 'number') {
         notRated.push(trucks[i]);
@@ -140,23 +140,62 @@ var get = {
       });
     }
     var sorted = rated.concat(notRated);
-    console.log(sorted);
     get.clearTrucks();
     get.render(sorted);
   },
-  highRating: function(trucks) {
-    var sorted = [];
-    var trucksCopy = trucks.slice();
-    for (var i in trucksCopy) {
-      if (typeof trucksCopy[i].rating === 'number') {
-        trucksCopy[i].i = i;
-        sorted.push(trucksCopy[i]);
+  lowRating: function(trucks) {
+    var notRated = [];
+    var rated = [];
+    for (var i in trucks) {
+      if (typeof trucks[i].rating !== 'number') {
+        notRated.push(trucks[i]);
+      } else {
+        trucks[i].i = i;
+        rated.push(trucks[i]);
       }
-      sorted.sort(function(a, b) {
-        return (b.rating - a.rating);
+      rated.sort(function(a, b) {
+        return (a.rating - b.rating);
       });
     }
-    return sorted;
+    var sorted = rated.concat(notRated);
+    get.clearTrucks();
+    get.render(sorted);
+  },
+  closest: function(trucks) {
+    var notRated = [];
+    var rated = [];
+    for (var i in trucks) {
+      if (typeof trucks[i].distance !== 'number') {
+        notRated.push(trucks[i]);
+      } else {
+        trucks[i].i = i;
+        rated.push(trucks[i]);
+      }
+      rated.sort(function(a, b) {
+        return (a.distance - b.distance);
+      });
+    }
+    var sorted = rated.concat(notRated);
+    get.clearTrucks();
+    get.render(sorted);
+  },
+  farthest: function(trucks) {
+    var notRated = [];
+    var rated = [];
+    for (var i in trucks) {
+      if (typeof trucks[i].distance !== 'number') {
+        notRated.push(trucks[i]);
+      } else {
+        trucks[i].i = i;
+        rated.push(trucks[i]);
+      }
+      rated.sort(function(a, b) {
+        return (b.distance - a.distance);
+      });
+    }
+    var sorted = rated.concat(notRated);
+    get.clearTrucks();
+    get.render(sorted);
   },
   renderRating: function(rating) {
     var stars = [
@@ -180,6 +219,11 @@ var get = {
       } else {
         return noRating;
       }
+  },
+  initTrucks: function() {
+    $(document).ready(function() {
+      get.render(currentTrucks);
+    });
   },
   clearTrucks: function() {
     for (var i = $('.truck').length; i > 0; i--) {
