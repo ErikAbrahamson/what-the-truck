@@ -27,6 +27,16 @@ $(document).ready(function() {
       console.log('There was a problem with the request:' + error);
     }
   });
+  $('#venue-list').on('mouseenter', 'div.truck img', function() {
+    $(this)
+      .addClass('transition')
+      .css('z-index', '6');
+    });
+  $('#venue-list').on('mouseleave', 'div.truck img', function() {
+    $(this)
+      .removeClass('transition')
+      .css('z-index', '5');
+  });
   $('#sort-rating').click(function(event) {
     event.preventDefault();
     if ($('.truck').eq(0).find('.rating').text() === '★★★★★') {
