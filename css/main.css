@@ -29,7 +29,7 @@ body {
     height: 125px;
     border-radius: 75px 5px 5px 75px;
     margin: 5px 0;
-    background: linear-gradient(to right, transparent, #f8f);
+    background: linear-gradient(to right, transparent, rgba(255,8,255,0.4));
     }
   }
   .logo {
