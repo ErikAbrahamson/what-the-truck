@@ -10,6 +10,8 @@ body {
     height: 125px;
     border-radius: 75px 5px 5px 75px;
     margin: 5px 0;
+    background: linear-gradient(to right, transparent, #f8f);
+    }
   }
   .logo {
     height: 125px;
@@ -24,9 +26,6 @@ body {
     -webkit-transition: all .2s ease-in-out;
        -moz-transition: all .2s ease-in-out;
          -o-transition: all .2s ease-in-out;
-  }
-  .rating {
-    color: black;
   }
   .name-desc {
     height: 125px;
@@ -47,22 +46,23 @@ body {
     height: auto;
   }
   .name-desc p {
-    line-height: 1.0em;
+    line-height: 1.1em;
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
-    min-height: 2.0em;
-    max-height: 3.0em;
+    min-height: 3.3em;
+    max-height: 3.3em;
   }
   .left {
     position: relative;
-    top: 20px;
+    clear: both;
+    top: 10px;
     float: left;
     font-weight: 500;
   }
   .right {
     position: relative;
-    top: 20px;
+    top: 10px;
     float: right;
     font-weight: 500;
   }
