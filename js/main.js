@@ -43,4 +43,12 @@ $(document).ready(function() {
       get.farthest(currentTrucks);
     }
   });
+  $('#sort-price').click(function(event) {
+    event.preventDefault();
+    if ($('.truck').eq(0).find('.price').text() !== '$ Cheap') {
+      get.cheapest(currentTrucks);
+    } else {
+      get.expensive(currentTrucks);
+    }
+  });
 });

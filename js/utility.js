@@ -15,6 +15,7 @@ var get = {
     this.photos = trucks.venue.photos.groups[0] ? trucks.venue.photos.groups[0].items : 'N/A';
     this.comment = trucks.tips ? trucks.tips[0].text : 'N/A';
     this.ll = trucks.venue.location ? (trucks.venue.location.lat + ',' + trucks.venue.location.lng) : undefined;
+    this.priceTier = trucks.venue.price ? trucks.venue.price.tier : 'n/a';
   },
   newTrucks: function(trucks) {
     currentTrucks = [];
@@ -46,23 +47,20 @@ var get = {
       var twitter = $('<p>').addClass('twitter');
       var phone = $('<p>').addClass('phone');
       info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
-      // truck = truck.append(logo).append(nameDesc).append(info);
-
-      // for (var i = 0; i < trucks.length; i++) {
-        truck = truck.append(logo).append(nameDesc).append(info);
-        if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
-          truck.removeClass('bg-info').addClass('bg-success');
-        } else {
-          truck.removeClass('bg-success').addClass('bg-info');
-        }
-        truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
-        $('img')
-          .on('load', function() {
-            $(this).css('visibility', 'visible');
-          })
-          .on('error', function() {
-            $(this).attr('src', 'img/default-logo.png');
-          });
+      truck = truck.append(logo).append(nameDesc).append(info);
+      if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
+        truck.removeClass('bg-info').addClass('bg-success');
+      } else {
+        truck.removeClass('bg-success').addClass('bg-info');
+      }
+      truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
+      $('img')
+        .on('load', function() {
+          $(this).css('visibility', 'visible');
+        })
+        .on('error', function() {
+          $(this).attr('src', 'img/default-logo.png');
+        });
         truck.find('h4').html(function() {
           if (trucks[i].menu !== 'n/a' || undefined) {
             return '<a href="' + trucks[i].menu + '" target="_blank"> '+ trucks[i].name + ' <img src="img/menu.png" width="1" height="auto"></a>';
@@ -103,14 +101,12 @@ var get = {
             } else {
               return '';
             }});
-            truck.find('.rating').text(get.renderRating(trucks[i].rating));
-            if (typeof trucks[i].rating === 'number') {
-              truck.find('.rating').css('color', 'black');
-            } else {
-              truck.find('.rating').css('color', '#D8D8D8');
-            }
-
-
+          truck.find('.rating').text(get.renderRating(trucks[i].rating) + ' ' + trucks[i].rating);
+          if (typeof trucks[i].rating === 'number') {
+            truck.find('.rating').css('color', 'black');
+          } else {
+            truck.find('.rating').css('color', '#D8D8D8');
+          }
         $('#venue-list').append(truck).hide().fadeIn(400);
       }
     });
@@ -194,6 +190,30 @@ var get = {
       });
     }
     var sorted = rated.concat(notRated);
+    get.clearTrucks();
+    get.render(sorted);
+  },
+  expensive: function(trucks) {
+    var sorted = [];
+    for (var i in trucks) {
+      sorted.push(trucks[i]);
+      trucks[i].i = i;
+    }
+    sorted.sort(function(a, b) {
+      return (b.priceTier - a.priceTier);
+    });
+    get.clearTrucks();
+    get.render(sorted);
+  },
+  cheapest: function(trucks) {
+    var sorted = [];
+    for (var i in trucks) {
+      sorted.push(trucks[i]);
+      trucks[i].i = i;
+    }
+    sorted.sort(function(a, b) {
+      return (a.priceTier - b.priceTier);
+    });
     get.clearTrucks();
     get.render(sorted);
   },
