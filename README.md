@@ -21,7 +21,7 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. ~~*possibly* Twitter API~~
 
 ##Constraints
-1. Quality & limits of API data
+1. Range of API data
 1. ~~Alternative solutions~~
 
 ##Procedure for project

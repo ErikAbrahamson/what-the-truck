@@ -43,7 +43,12 @@ body {
     height: auto;
   }
   .name-desc p {
-    line-height: 1.10em;
+    line-height: 1.0em;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    min-height: 2.0em;
+    max-height: 3.0em;
   }
   .left {
     position: relative;
@@ -57,44 +62,20 @@ body {
     float: right;
     font-weight: 500;
   }
-    }
-  .knockout-around {
-    position: relative;
-  }
-  .knockout-around:before, .knockout-around:after {
-    content: "";
-    position: absolute;
-  }
-  .knockout-around:before {
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background-image: -webkit-gradient(radial, right top, 10, 90% 0%, 150, from(#f8f), to(transparent));
-    background-image: -webkit-radial-gradient(right top, 150px 230px, #f8f, transparent);
-    background-image: -moz-radial-gradient(right top, farthest-corner, #f8f 0%, transparent 72%);
-    z-index: -2;
-  }
-  .knockout-around:after {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #a4b9ff;
-    z-index: -1;
-  }
 }
 @media screen and (max-width: 1000px) {
-  .left,
-  .right {
-    top: 5px;
+  .name-desc p {
+    max-height: 2em;
   }
 }
 @media screen and (max-width: 720px) {
   .name-desc {
-    position: relative;
-    left: 25px;
+    left: 5px;
     bottom: 7px;
+  }
+  .left,
+  .right {
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 665px) {
