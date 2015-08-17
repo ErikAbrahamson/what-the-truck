@@ -63,7 +63,7 @@ body {
     font-weight: 500;
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .name-desc p {
     max-height: 2em;
   }
@@ -76,12 +76,6 @@ body {
   .left,
   .right {
     font-size: 12px;
-  }
-}
-@media screen and (max-width: 665px) {
-  .left,
-  .right {
-    top: -7px;
   }
 }
 @media screen and (max-width: 580px) {
@@ -108,9 +102,5 @@ body {
   }
   .info p {
     height: 10%
-  }
-  .left,
-  .right {
-    top: -15px;
   }
 }

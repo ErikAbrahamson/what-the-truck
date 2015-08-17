@@ -8,7 +8,7 @@ var get = {
     this.hours = trucks.venue.hours ? trucks.venue.hours.status : 'Hours not available';
     this.open = trucks.venue.hours ? trucks.venue.hours.isOpen : 'n/a';
     this.website = trucks.venue.url ? trucks.venue.url : 'No website posted';
-    this.menu = trucks.venue.url ? trucks.venue.url : 'No menu posted';
+    this.menu = trucks.venue.url ? trucks.venue.url : 'n/a';
     this.twitter = trucks.venue.contact.twitter ? trucks.venue.contact.twitter : 'N/A';
     this.formattedPhone = trucks.venue.contact.formattedPhone ? trucks.venue.contact.formattedPhone : 'No phone number listed';
     this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'N/A';
@@ -17,28 +17,27 @@ var get = {
     this.ll = trucks.venue.location ? (trucks.venue.location.lat + ',' + trucks.venue.location.lng) : undefined;
   },
   newTrucks: function(trucks) {
-    currentTrucks = trucks;
-    currentTrucks = currentTrucks.map(function(truck) {
-      return new get.Truck(truck);
+    currentTrucks = [];
+    trucks.map(function(truck) {
+      currentTrucks.push(new get.Truck(truck));
     });
-    get.render();
+    // get.render(currentTrucks);
+    return currentTrucks;
   },
-  render: function() {
+  render: function(trucks) {
     $(document).ready(function() {
+    for (var i = 0; i < trucks.length; i++) {
       var truck = $('<div>')
         .addClass('truck col-xs-2-offset-6');
-
       var logo = $('<div>').addClass('logo col-xs-2');
       var logoImg = $('<img>').addClass('image img-circle').attr('src','img/default-logo.png');
       logo = logo.append(logoImg);
-
       var nameDesc = $('<div>').addClass('name-desc col-xs-7');
       var name = $('<h4>').attr('id', 'title');
       var desc = $('<p>').addClass('description');
       var spanLeft = $('<span>').addClass('left');
       var spanRight = $('<span>').addClass('right');
       nameDesc = nameDesc.append(name).append(desc).append(spanLeft).append(spanRight);
-
       var info = $('<div>').addClass('info col-xs-3');
       var distance = $('<p>').addClass('distance');
       var rating = $('<p>').append('<strong class="rating">');
@@ -46,16 +45,16 @@ var get = {
       var twitter = $('<p>').addClass('twitter');
       var phone = $('<p>').addClass('phone');
       info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
+      // truck = truck.append(logo).append(nameDesc).append(info);
 
-      truck = truck.append(logo).append(nameDesc).append(info);
-
-      for (var i = 0; i < currentTrucks.length; i++) {
-        if (currentTrucks[i].open !== 'N/A' && currentTrucks[i].open === true) {
+      // for (var i = 0; i < trucks.length; i++) {
+        truck = truck.append(logo).append(nameDesc).append(info);
+        if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
           truck.removeClass('bg-info').addClass('bg-success');
         } else {
           truck.removeClass('bg-success').addClass('bg-info');
         }
-        truck.find('.image').attr('src', currentTrucks[i].photos[0].prefix + '125x125' + currentTrucks[i].photos[0].suffix);
+        truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
         $('img')
           .on('load', function() {
             $(this).css('visibility', 'visible');
@@ -63,43 +62,48 @@ var get = {
           .on('error', function() {
             $(this).attr('src', 'img/default-logo.png');
           });
-        truck.find('h4').text(currentTrucks[i].name);
+        truck.find('h4').html(function() {
+          if (trucks[i].menu !== 'n/a' || undefined) {
+            return '<a href="' + trucks[i].menu + '" target="_blank"> '+ trucks[i].name + ' <img src="img/menu.png" width="1" height="auto"></a>';
+          } else {
+            return trucks[i].name;
+          }});
         truck.find('.description').html(function() {
-          if (currentTrucks[i].comment !== 'N/A') {
-            return '<em>"' + currentTrucks[i].comment + '"</em>';
+          if (trucks[i].comment !== 'N/A') {
+            return '<em>"' + trucks[i].comment + '"</em>';
           } else {
             return '<em>No description yet</em>';
           }});
-        truck.find('.distance').html('<p><strong>' + currentTrucks[i].distance + '</strong> miles away</p>');
+        truck.find('.distance').html('<p><strong>' + trucks[i].distance + '</strong> miles away</p>');
         truck.find('.left').html(function() {
-          if (currentTrucks[i].location !== undefined) {
-            return '<a href="' + 'https://www.google.com/maps/preview/@' + currentTrucks[i].ll + ',8z">' + currentTrucks[i].location + '</a>';
+          if (trucks[i].location !== undefined) {
+            return '<a href="' + 'https://www.google.com/maps/place/' + trucks[i].ll + '" target="_blank">' + '<img src="img/gps.png" width="12" height="auto"> ' + trucks[i].location + '</a>';
             } else {
-              return 'No address listed';
+              return '';
             }});
-        truck.find('.right').text(currentTrucks[i].hours);
+        truck.find('.right').text(trucks[i].hours);
         truck.find('.price').text(function() {
-          if (currentTrucks[i].price === 'Cheap') {
-            return '$ ' + currentTrucks[i].price;
-          } else if (currentTrucks[i].price === 'Moderate') {
-            return '$$ ' + currentTrucks[i].price;
-          } else if (currentTrucks[i].price !== 'Cheap' || 'Moderate') {
-            return '$$$ ' + currentTrucks[i].price;
+          if (trucks[i].price === 'Cheap') {
+            return '$ ' + trucks[i].price;
+          } else if (trucks[i].price === 'Moderate') {
+            return '$$ ' + trucks[i].price;
+          } else if (trucks[i].price !== 'Cheap' || 'Moderate') {
+            return '$$$ ' + trucks[i].price;
           }});
           truck.find('.twitter').html(function() {
-            if (currentTrucks[i].twitter !== 'N/A') {
-              return '<img src="img/twitter-bird.svg"><a href="https://twitter.com/' + currentTrucks[i].twitter + '"> @' + currentTrucks[i].twitter + '</a>';
+            if (trucks[i].twitter !== 'N/A') {
+              return '<img src="img/twitter-bird.svg"><a href="https://twitter.com/' + trucks[i].twitter + '"> @' + trucks[i].twitter + '</a>';
             } else {
               return '';
           }});
           truck.find('.phone').html(function() {
-            if (currentTrucks[i].phone !== 'N/A') {
-              return '\u260E ' + '<a href="tel:+' + currentTrucks[i].phone + '">' +  currentTrucks[i].formattedPhone + '</a>';
+            if (trucks[i].phone !== 'N/A') {
+              return '\u260E ' + '<a href="tel:+' + trucks[i].phone + '">' +  trucks[i].formattedPhone + '</a>';
             } else {
               return '';
             }});
-            truck.find('.rating').text(get.renderRating(currentTrucks[i].rating));
-            if (typeof currentTrucks[i].rating === 'number') {
+            truck.find('.rating').text(get.renderRating(trucks[i].rating));
+            if (typeof trucks[i].rating === 'number') {
               truck.find('.rating').css('color', 'black');
             } else {
               truck.find('.rating').css('color', '#D8D8D8');
@@ -121,18 +125,24 @@ var get = {
     return today;
   },
   lowRating: function(trucks) {
-    var sorted = [];
-    var trucksCopy = trucks.slice();
-    for (var i in trucksCopy) {
-      if (typeof trucksCopy[i].rating === 'number') {
-        trucksCopy[i].i = i;
-        sorted.push(trucksCopy[i]);
+    var notRated = [];
+    var rated = [];
+   console.log(currentTrucks);
+    for (var i in trucks) {
+      if (typeof trucks[i].rating !== 'number') {
+        notRated.push(trucks[i]);
+      } else {
+        trucks[i].i = i;
+        rated.push(trucks[i]);
       }
-      sorted.sort(function(a, b) {
-        return (a.rating - b.rating);
+      rated.sort(function(a, b) {
+        return (b.rating - a.rating);
       });
     }
-    return sorted;
+    var sorted = rated.concat(notRated);
+    console.log(sorted);
+    get.clearTrucks();
+    get.render(sorted);
   },
   highRating: function(trucks) {
     var sorted = [];
@@ -170,5 +180,10 @@ var get = {
       } else {
         return noRating;
       }
+  },
+  clearTrucks: function() {
+    for (var i = $('.truck').length; i > 0; i--) {
+      $('.truck').remove();
+    }
   }
 };
