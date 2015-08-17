@@ -14,6 +14,7 @@ var get = {
     this.phone = trucks.venue.contact.phone ? trucks.venue.contact.phone : 'N/A';
     this.photos = trucks.venue.photos.groups[0] ? trucks.venue.photos.groups[0].items : 'N/A';
     this.comment = trucks.tips ? trucks.tips[0].text : 'N/A';
+    this.ll = trucks.venue.location ? (trucks.venue.location.lat + ',' + trucks.venue.location.lng) : undefined;
   },
   newTrucks: function(trucks) {
     currentTrucks = trucks;
@@ -70,7 +71,12 @@ var get = {
             return '<em>No description yet</em>';
           }});
         truck.find('.distance').html('<p><strong>' + currentTrucks[i].distance + '</strong> miles away</p>');
-        truck.find('.left').text(currentTrucks[i].location);
+        truck.find('.left').html(function() {
+          if (currentTrucks[i].location !== undefined) {
+            return '<a href="' + 'https://www.google.com/maps/preview/@' + currentTrucks[i].ll + ',8z">' + currentTrucks[i].location + '</a>';
+            } else {
+              return 'No address listed';
+            }});
         truck.find('.right').text(currentTrucks[i].hours);
         truck.find('.price').text(function() {
           if (currentTrucks[i].price === 'Cheap') {
