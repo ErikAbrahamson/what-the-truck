@@ -4,10 +4,12 @@ $(document).ready(function() {
     type: 'GET',
     data: {
       ll: '39.7,-104.9',
+      // ll: getLocation(),
       query: 'Food Truck',
       venuePhotos: 1,
       // openNow: 1,
       sortByDistance: 1,
+      // radius: 90000,
       client_id: 'L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP',
       client_secret: 'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE',
       v: get.currentDate()
@@ -39,7 +41,7 @@ $(document).ready(function() {
   });
   $('#sort-rating').click(function(event) {
     event.preventDefault();
-    if ($('.truck').eq(0).find('.rating').text() === '★★★★★') {
+    if (+$('.truck').eq(0).find('.rating').text()[6] > 3) {
       get.lowRating(currentTrucks);
     } else {
       get.highRating(currentTrucks);
@@ -47,7 +49,7 @@ $(document).ready(function() {
   });
   $('#sort-distance').click(function(event) {
     event.preventDefault();
-    if (+($('.truck').eq(0).find('.distance').text()[0] > 5)) {
+    if (+($('.truck').eq(0).find('.distance').text()[0] > 2)) {
       get.closest(currentTrucks);
     } else {
       get.farthest(currentTrucks);
@@ -60,5 +62,15 @@ $(document).ready(function() {
     } else {
       get.expensive(currentTrucks);
     }
+  });
+  $('#sort-open').click(function(event) {
+    get.isOpen(currentTrucks);
+  });
+  $('#search-radius').click(function(event) {
+    var input = +$('#search-bar').val();
+    get.radius();
+  });
+  $(window).on('load', function() {
+    $( "#dialog" ).dialog();
   });
 });

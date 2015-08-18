@@ -1,5 +1,5 @@
 body {
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/bg-texture.jpg);
 }
 @media screen and (max-width: 2880px) {
   h1 {
@@ -19,17 +19,16 @@ body {
     min-height: 125px;
   }
   .open {
-    background: linear-gradient(to right, transparent, #7f7);
+    background: linear-gradient(to right, transparent, rgba(52,250,100,0.5)), url(../img/truck-bg.jpg);
   }
   .closed {
-    background: linear-gradient(to right, transparent, #f8f);
+    background: linear-gradient(to right, transparent, rgba(52,201,241,0.4)), url(../img/truck-bg.jpg);
   }
   .truck {
     display: block;
     height: 125px;
     border-radius: 75px 5px 5px 75px;
     margin: 5px 0;
-    background: linear-gradient(to right, transparent, rgba(255,8,255,0.4));
     }
   }
   .logo {

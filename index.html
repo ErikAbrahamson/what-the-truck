@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>What The Truck!</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Archivo+Narrow:400,400italic,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
@@ -16,15 +17,18 @@
         </div>
       </header>
       <div class="col-xs-2-offset-6">
-<!--         <input id="search-bar" class="form-control" type="search"> -->
-        <button type="button" id="sort-rating" class="col-xs-4 btn btn-info">Sort by Rating</button>
-        <button type="button" id="sort-distance" class="col-xs-4 btn btn-info">Sort by Distance</button>
-        <button type="button" id="sort-price" class="col-xs-4 btn btn-info">Sort by Price</button>
+<!--         <input id="search-bar" class="form-control col-xs-3" type="search">
+        <button id="search-radius" class="col-xs-1 btn btn-info" type="button">Go</button> -->
+        <button type="button" id="sort-rating" class="col-xs-3 btn btn-info">Sort by Rating</button>
+        <button type="button" id="sort-distance" class="col-xs-3 btn btn-info">Sort by Distance</button>
+        <button type="button" id="sort-price" class="col-xs-3 btn btn-info">Sort by Price</button>
+        <button type="button" id="sort-open" class="col-xs-3 btn btn-success">Sort by Confirmed Open</button>
       </div>
       <div id="venue-list" class="clearfix col-xs-2-offset-6">
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/geo.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/utility.js"></script>
     <script type="text/javascript" src="js/main.js"></script>

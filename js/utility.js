@@ -1,7 +1,7 @@
 var get = {
   Truck: function(trucks) {
     this.name = trucks.venue.name ? trucks.venue.name : 'n/a';
-    this.rating = trucks.venue.rating ? trucks.venue.rating : 'N/A';
+    this.rating = trucks.venue.rating ? trucks.venue.rating / 2 : 'N/A';
     this.price = trucks.venue.price ? trucks.venue.price.message : 'n/a';
     this.location = trucks.venue.location ? trucks.venue.location.address : 'n/a';
     this.distance = +(trucks.venue.location.distance * 0.000621371).toFixed(1) ? +(trucks.venue.location.distance * 0.000621371).toFixed(1) : 'n/a';
@@ -49,9 +49,9 @@ var get = {
       info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
       truck = truck.append(logo).append(nameDesc).append(info);
       if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
-        truck.removeClass('closed').addClass('open');
+        truck.toggleClass('open');
       } else {
-        truck.removeClass('open').addClass('closed');
+        truck.toggleClass('closed');
       }
       truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
       $('img')
@@ -136,6 +136,23 @@ var get = {
       });
     }
     var sorted = rated.concat(notRated);
+    get.clearTrucks();
+    get.render(sorted);
+  },
+  isOpen: function(trucks) {
+    var notOpen = [];
+    var open = [];
+    for (var i in trucks) {
+      if (trucks[i].open === true) {
+        open.push(trucks[i]);
+      } else {
+        notOpen.push(trucks[i]);
+      }
+      open.sort(function(a, b) {
+        return (b.distance - a.distance);
+      });
+    }
+    var sorted = open.concat(notOpen);
     get.clearTrucks();
     get.render(sorted);
   },
@@ -226,19 +243,19 @@ var get = {
       ['\u2605','\u2605','\u2605','\u2605','\u2605']
     ];
     var noRating = ['\u2606','\u2606','\u2606','\u2606','\u2606'].join('');
-      if (rating <= 3) {
-        return stars[0].join('');
-      } else if (rating <= 6) {
-        return stars[1].join('');
-      } else if (rating <= 7.5) {
-        return stars[2].join('');
-      } else if (rating <= 8) {
-        return stars[3].join('');
-      } else if (rating <= 9) {
-        return stars[4].join('');
-      } else {
-        return noRating;
-      }
+    if (rating <= 1) {
+      return stars[0].join('');
+    } else if (rating <= 2) {
+      return stars[1].join('');
+    } else if (rating <= 3) {
+      return stars[2].join('');
+    } else if (rating <= 4) {
+      return stars[3].join('');
+    } else if (rating <= 5) {
+      return stars[4].join('');
+    } else {
+      return noRating;
+    }
   },
   initTrucks: function() {
     $(document).ready(function() {
@@ -249,5 +266,25 @@ var get = {
     for (var i = $('.truck').length; i > 0; i--) {
       $('.truck').remove();
     }
+  },
+  radius: function() {
+    var input = +$('#search-bar').val();
+    if (input <= 2) {
+      return 3219;
+    } else if (input <= 3) {
+      return 4824;
+    } else if (input <= 4) {
+      return 6438;
+    } else if (input <= 5) {
+      return 8046;
+    } else if (input <= 6) {
+      return 9656;
+    } else {
+      return null;
+    }
   }
+  // renderRadius: function() {
+  //
+  //
+  // }
 };
