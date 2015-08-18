@@ -234,6 +234,13 @@ var get = {
     get.clearTrucks();
     get.render(sorted);
   },
+  currentLocation: function() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      ll = position.coords.latitude + ',' + position.coords.longitude;
+      console.log(ll);
+      return ll;
+    });
+  },
   renderRating: function(rating) {
     var stars = [
       ['\u2605','\u2606','\u2606','\u2606','\u2606'],
@@ -260,6 +267,7 @@ var get = {
   initTrucks: function() {
     $(document).ready(function() {
       get.render(currentTrucks);
+      get.currentLocation();
     });
   },
   clearTrucks: function() {
