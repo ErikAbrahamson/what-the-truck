@@ -1,4 +1,38 @@
 var get = {
+  currentPosition: function(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var ll = lat + ',' + lon;
+    $.ajax({
+      url: 'https://api.foursquare.com/v2/venues/explore',
+      type: 'GET',
+         data: {
+         // ll: '39.7,-104.9',
+            ll: ll,
+            query: 'Food Truck',
+            venuePhotos: 1,
+            sortByDistance: 1,
+            // radius: 40000,
+            client_id: 'L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP',
+            client_secret: 'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE',
+            v: get.currentDate()
+         },
+      dataType: 'json',
+      success: function(data) {
+         unfiltered = data.response.groups[0].items;
+         venues = [];
+         for (var i = 0; i < unfiltered.length; i++) {
+            if (unfiltered[i].venue.categories[0].id === '4bf58dd8d48988d1cb941735') {
+            venues.push(unfiltered[i]);
+            }
+            get.newTrucks(venues);
+         }
+      },
+      error: function(error) {
+         console.log('There was a problem with the request:' + error);
+      }
+    });
+  },
   Truck: function(trucks) {
     this.name = trucks.venue.name ? trucks.venue.name : 'n/a';
     this.rating = trucks.venue.rating ? trucks.venue.rating / 2 : 'N/A';
@@ -291,8 +325,4 @@ var get = {
       return null;
     }
   }
-  // renderRadius: function() {
-  //
-  //
-  // }
 };
