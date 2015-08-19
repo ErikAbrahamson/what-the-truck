@@ -31,8 +31,8 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. ~~Optimize UI to continually compliment live API data~~
 1. ~~Test data against request~~
 1. ~~Create responsive bootstrap layout.~~
-1. Fix lazy & shitty CSS
-1. Refactor JS
+1. ~~Fix lazy & shitty CSS~~
+1. ~~Refactor JS~~
 1. Beautify
 
 ##Stretch Goals/Future Iterations
