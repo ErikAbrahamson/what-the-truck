@@ -13,16 +13,13 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. HTML5 & CSS3
 1. Bootstrap
 1. Functional JavaScript
-1. ~~D3~~
 1. jQuery
 1. JSON/AJAX
 1. Foursquare API
-1. ~~AngularJS~~
-1. ~~*possibly* Twitter API~~
+1. AngularJS
 
 ##Constraints
-1. Range of API data
-1. ~~Alternative solutions~~
+1. Range & Quality of API data
 
 ##Procedure for project
 1. ~~Digest Foursquare API~~
@@ -33,7 +30,8 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. ~~Create responsive bootstrap layout.~~
 1. ~~Fix lazy & shitty CSS~~
 1. ~~Refactor JS~~
-1. Beautify
+1. Beautify; make 100% responsive
+1. Refactor with Angluar
 
 ##Stretch Goals/Future Iterations
 1. Make platform API agnostic so I can:
