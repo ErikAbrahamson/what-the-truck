@@ -16,7 +16,7 @@ $(document).ready(function() {
   });
   $('#sort-distance').click(function(event) {
     event.preventDefault();
-    if (+($('.truck').eq(0).find('.distance').text()[0] > 2)) {
+    if (+($('.truck').eq(0).find('.distance').text()[0] > 0)) {
       get.closest(currentTrucks);
     } else {
       get.farthest(currentTrucks);
