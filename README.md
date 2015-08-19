@@ -32,10 +32,12 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. ~~Refactor JS~~
 1. Beautify; make 100% responsive
 1. Refactor with Angluar
+1. Add location radius input modal
+1. Add loading indicator
 
 ##Stretch Goals/Future Iterations
 1. Make platform API agnostic so I can:
 1. Cross-reference data between APIs and return the most relevant data from a given source; i.e., Yelp, Google Places, etc
-1. Geolocation. Not really a stretch
+1. ~~Geolocation. Not really a stretch~~
 1. Optimize for touch-screen devices
 1. g[11] rating system
