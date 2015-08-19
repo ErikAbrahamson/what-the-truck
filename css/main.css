@@ -1,5 +1,5 @@
 body {
-  background-image: url(http://do512blog.com/wp-content/uploads/2013/05/south-congress-food-trucks.jpg);
+  background-image: url(../img/shattered.png);
   background-attachment: fixed;
   width: 100%;
   height: 100%;
@@ -43,8 +43,7 @@ body {
     right: 15px;
     max-height: 125px;
     max-width: 125px;
-    border: 5px solid #F8F8F8;
-    border: 5px solid rgba(185,224,224,0.9);
+    border: 5px solid rgba(211,213,213,0.9);
     z-index: 5;
     -webkit-transition: all .2s ease-in-out;
        -moz-transition: all .2s ease-in-out;

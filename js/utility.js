@@ -62,37 +62,34 @@ var get = {
   },
   render: function(trucks) {
     $(document).ready(function() {
-    for (var i = 0; i < trucks.length; i++) {
-      var truck = $('<div>')
-        .addClass('truck col-xs-2-offset-6');
-      var logo = $('<div>').addClass('logo col-xs-2');
-      var logoImg = $('<img>').addClass('image img-circle').attr('src','img/default-logo.png');
-      logo = logo.append(logoImg);
-      var nameDesc = $('<div>').addClass('name-desc col-xs-7');
-      var name = $('<h4>').attr('id', 'title');
-      var desc = $('<p>').addClass('description');
-      var spanLeft = $('<span>').addClass('left');
-      var spanRight = $('<span>').addClass('right');
-      nameDesc = nameDesc.append(name).append(desc).append(spanLeft).append(spanRight);
-      var info = $('<div>').addClass('info col-xs-3');
-      var distance = $('<p>').addClass('distance');
-      var rating = $('<p>').append('<strong class="rating">');
-      var price = $('<p>').addClass('price');
-      var twitter = $('<p>').addClass('twitter');
-      var phone = $('<p>').addClass('phone');
-      info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
-      truck = truck.append(logo).append(nameDesc).append(info);
-      if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
-        truck.toggleClass('open');
-      } else {
-        truck.toggleClass('closed');
-      }
-      truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
-      $('img')
-        .on('load', function() {
+      for (var i = 0; i < trucks.length; i++) {
+        var truck = $('<div>').addClass('truck col-xs-2-offset-6');
+        var logo = $('<div>').addClass('logo col-xs-2');
+        var logoImg = $('<img>').addClass('image img-circle').attr('src','img/default-logo.png');
+        logo = logo.append(logoImg);
+        var nameDesc = $('<div>').addClass('name-desc col-xs-7');
+        var name = $('<h4>').attr('id', 'title');
+        var desc = $('<p>').addClass('description');
+        var spanLeft = $('<span>').addClass('left');
+        var spanRight = $('<span>').addClass('right');
+        nameDesc = nameDesc.append(name).append(desc).append(spanLeft).append(spanRight);
+        var info = $('<div>').addClass('info col-xs-3');
+        var distance = $('<p>').addClass('distance');
+        var rating = $('<p>').append('<strong class="rating">');
+        var price = $('<p>').addClass('price');
+        var twitter = $('<p>').addClass('twitter');
+        var phone = $('<p>').addClass('phone');
+        info = info.append(distance).append(rating).append(price).append(twitter).append(phone);
+        truck = truck.append(logo).append(nameDesc).append(info);
+        if (trucks[i].open !== 'N/A' && trucks[i].open === true) {
+          truck.toggleClass('open');
+        } else {
+          truck.toggleClass('closed');
+        }
+        truck.find('.image').attr('src', trucks[i].photos[0].prefix + '125x125' + trucks[i].photos[0].suffix);
+        $('img').on('load', function() {
           $(this).css('visibility', 'visible');
-        })
-        .on('error', function() {
+        }).on('error', function() {
           $(this).attr('src', 'img/default-logo.png');
         });
         truck.find('h4').html(function() {
@@ -123,19 +120,19 @@ var get = {
           } else if (trucks[i].price !== 'Cheap' || 'Moderate') {
             return '$$$ ' + trucks[i].price;
           }});
-          truck.find('.twitter').html(function() {
-            if (trucks[i].twitter !== 'N/A') {
-              return '<img src="img/twitter-bird.svg"><a href="https://twitter.com/' + trucks[i].twitter + '"> @' + trucks[i].twitter + '</a>';
-            } else {
-              return '';
+        truck.find('.twitter').html(function() {
+          if (trucks[i].twitter !== 'N/A') {
+            return '<img src="img/twitter-bird.svg"><a href="https://twitter.com/' + trucks[i].twitter + '"> @' + trucks[i].twitter + '</a>';
+          } else {
+            return '';
           }});
-          truck.find('.phone').html(function() {
-            if (trucks[i].phone !== 'N/A') {
-              return '\u260E ' + '<a href="tel:+' + trucks[i].phone + '">' +  trucks[i].formattedPhone + '</a>';
-            } else {
-              return '';
-            }});
-          truck.find('.rating').text(get.renderRating(trucks[i].rating) + ' ' + trucks[i].rating);
+        truck.find('.phone').html(function() {
+          if (trucks[i].phone !== 'N/A') {
+            return '\u260E ' + '<a href="tel:+' + trucks[i].phone + '">' +  trucks[i].formattedPhone + '</a>';
+          } else {
+            return '';
+          }});
+        truck.find('.rating').text(get.renderRating(trucks[i].rating) + ' ' + trucks[i].rating);
           if (typeof trucks[i].rating === 'number') {
             truck.find('.rating').css('color', 'black');
           } else {
