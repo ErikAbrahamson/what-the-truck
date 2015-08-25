@@ -10,25 +10,22 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. Random user comments. Emphasis on *random*
 
 ##Technologies
-1. HTML5 & CSS3
 1. Bootstrap
 1. Functional JavaScript
 1. jQuery
 1. JSON/AJAX
 1. Foursquare API
-1. AngularJS
 
 ##Constraints
 1. Range & Quality of API data
+1. Client-side latency
 
 ##Procedure for project
 1. ~~Digest Foursquare API~~
-1. ~~If not sufficient, look at Twitter API~~
 1. ~~Define keys from API~~
 1. ~~Optimize UI to continually compliment live API data~~
 1. ~~Test data against request~~
 1. ~~Create responsive bootstrap layout.~~
-1. ~~Fix lazy & shitty CSS~~
 1. ~~Refactor JS~~
 1. Beautify; make 100% responsive
 1. Refactor with Angluar
@@ -36,6 +33,7 @@ To create a simple UI that displays intuitive, real-time information from local 
 1. Add loading indicator
 
 ##Stretch Goals/Future Iterations
+1. Refactor with NodeJS and remove client-side scripting to optimize performance
 1. Make platform API agnostic so I can:
 1. Cross-reference data between APIs and return the most relevant data from a given source; i.e., Yelp, Google Places, etc
 1. ~~Geolocation. Not really a stretch~~

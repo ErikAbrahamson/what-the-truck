@@ -43,7 +43,7 @@ body {
     right: 15px;
     max-height: 125px;
     max-width: 125px;
-    border: 5px solid rgba(211,213,213,0.9);
+    border: 5px solid rgba(218,219,219,0.9);
     z-index: 5;
     -webkit-transition: all .2s ease-in-out;
        -moz-transition: all .2s ease-in-out;
