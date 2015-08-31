@@ -7,7 +7,6 @@ To create a simple single-page application that displays intuitive, real-time in
 1. Live, relevant venue information
 1. Minimal and easy-to-read UI
 1. Fair and relative rating system derived from Foursquare's 1-10 system
-1. Random user comments. Emphasis on *random*
 
 ##Technologies
 1. Bootstrap
