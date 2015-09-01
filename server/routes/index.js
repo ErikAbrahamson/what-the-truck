@@ -17,10 +17,12 @@ var options = {
     v: util.currentDate()
   },
   success: function(data) {
-    x = JSON.parse(data);
-    console.log(x);
+    trucks = JSON.parse(data);
+    trucks = trucks.response.groups[0].items;
     router.get('/', function(request, response) {
-      response.json(x);
+      response.json(trucks.filter(function(truck) {
+        return truck.venue.categories[0].id === '4bf58dd8d48988d1cb941735';
+      }));
     });
   },
   error: function(error) {
@@ -29,13 +31,5 @@ var options = {
 };
 
 ajax(options);
-
-
-
-// http.request(options, function(response) {
-//   response.on('data', function(data) {
-//     console.log(data);
-//   });
-// });
 
 module.exports = router;
