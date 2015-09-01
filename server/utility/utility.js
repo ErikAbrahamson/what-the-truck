@@ -9,5 +9,9 @@ module.exports = {
         today = yyyy + mm + dd;
         return today;
     },
-    filterTrucks(callback)
+    filterTrucks: function(trucks, key) {
+        trucks.filter(function(truck) {
+            return truck.venue.categories[0].id === key;
+        });
+    }
 };
