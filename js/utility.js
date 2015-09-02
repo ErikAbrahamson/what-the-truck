@@ -7,12 +7,10 @@ var get = {
       url: 'https://api.foursquare.com/v2/venues/explore',
       type: 'GET',
          data: {
-         // ll: '39.7,-104.9',
             ll: ll,
             query: 'Food Truck',
             venuePhotos: 1,
             sortByDistance: 1,
-            // radius: 40000,
             client_id: 'L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP',
             client_secret: 'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE',
             v: get.currentDate()
