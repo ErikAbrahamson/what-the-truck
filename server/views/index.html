@@ -8,7 +8,13 @@
   <div class="container">
 
     <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <p>Find your next lunch</p>
+    <ul>
+    {% for truck in currentTrucks %}
+      <li>{{ truck.name }}</li>
+    {% endfor %}
+    </ul>
+
 
   </div>
 

@@ -4,6 +4,7 @@ var router = express.Router();
 var util = require('../utility/utility');
 var ajax = require('najax');
 var keys = require('../utility/keys');
+var currentTrucks = [];
 
 var fsTrucks = {
   url: 'https://api.foursquare.com/v2/venues/explore',
@@ -20,10 +21,17 @@ var fsTrucks = {
   success: function(data) {
     trucks = JSON.parse(data);
     trucks = trucks.response.groups[0].items;
+    trucks = trucks.filter(function(truck) {
+      return truck.venue.categories[0].id === keys.truckID;
+    });
+    trucks.forEach(function(truck) {
+      currentTrucks.push(truck.venue);
+    });
     router.get('/', function(request, response) {
-      response.json(trucks.filter(function(truck) {
-        return truck.venue.categories[0].id === '4bf58dd8d48988d1cb941735';
-      }));
+      response.render('index', {
+        title: 'What The Truck!',
+        currentTrucks: currentTrucks
+      });
     });
   },
   error: function(error) {
