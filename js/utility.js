@@ -11,8 +11,8 @@ var get = {
             query: 'Food Truck',
             venuePhotos: 1,
             sortByDistance: 1,
-            client_id: 'L315SVFDTIGOFB4XCGNPEKM2S5CHEO24T4YPEMBTLP2UP3ZP',
-            client_secret: 'GX2APOUMZCXT4DHUS4BZZKVNDTMMBSZFKMQM4LK1II3JOJOE',
+            client_id: process.env.id,
+            client_secret: process.env.secret,
             v: get.currentDate()
          },
       dataType: 'json',
