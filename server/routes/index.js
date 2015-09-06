@@ -3,7 +3,6 @@ var http = require('http');
 var router = express.Router();
 var util = require('../utility/utility');
 var ajax = require('najax');
-var keys = require('../utility/keys');
 var currentTrucks = [];
 
 var fsTrucks = {

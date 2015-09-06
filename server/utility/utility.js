@@ -8,10 +8,5 @@ module.exports = {
         if (mm < 10) { mm = '0' + mm; }
         today = yyyy + mm + dd;
         return today;
-    },
-    filterTrucks: function(trucks, key) {
-        trucks.filter(function(truck) {
-            return truck.venue.categories[0].id === key;
-        });
     }
 };
