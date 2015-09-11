@@ -8,10 +8,11 @@
   <div class="container">
     <ul ng-model="trucks">
       <li ng-repeat="truck in trucks">
-        {{ truck }}
+        {{ truck.venue.name }}
       </li>
     </ul>
   </div>
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <<script type="text/javascript" src="js/lib/ngGeolocation.js">

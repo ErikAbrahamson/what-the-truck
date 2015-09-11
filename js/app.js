@@ -4,9 +4,9 @@ var myApp = angular.module('myApp', ['ngGeolocation'])
     $geolocation.getCurrentPosition({
       timeout: 60000
     })
+
     .then(function(position) {
       $scope.ll = position.coords.latitude + ',' + position.coords.longitude;
-
       $http.get('https://api.foursquare.com/v2/venues/explore',{
         params: {
           ll: $scope.ll,
