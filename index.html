@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-  <title>WTT</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <title>What The Truck!</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Archivo+Narrow:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-controller="TruckController">
   <div class="container">
-    <ul ng-model="trucks">
-      <li ng-repeat="truck in trucks">
-        {{ truck.venue.name }}
-      </li>
-    </ul>
-  </div>
+    <header>
+      <div class="col-xs-6-offset-6">
+        <h1 class="text-center">What The Truck!</h1>
+        <h4 class="text-center">Find the best food trucks near you</h4>
+      </div>
+    </header>
+    <div class="col-xs-2-offset-6">
+      <button type="button" id="sort-rating" class="col-xs-3 btn btn-info">Sort by Rating</button>
+      <button type="button" id="sort-distance" class="col-xs-3 btn btn-info">Sort by Distance</button>
+      <button type="button" id="sort-price" class="col-xs-3 btn btn-info">Sort by Price</button>
+      <button type="button" id="sort-open" class="col-xs-3 btn btn-success">Sort by Confirmed Open</button>
+    </div>
 
+    <!-- Truck Partial -->
+    <div id="venue-list" ng-model="trucks">
+      <div class="truck col-xs-2-offset-6" ng-repeat="truck in trucks">
+        <div class="logo col-xs-2">
+          <img class="image img-circle" ng-src="#">
+        </div>
+        <div class="name-desc col-xs-7">
+          <h4 id="title">{{ truck.venue.name }}</h4>
+          <p class="description">
+            <em>{{ truck.venue.tips[0].text }}</em>
+          </p>
+          <span class="left">{{ truck.venue.location.address }}</span>
+          <span class="right">{{ truck.venue.hours.status }}</span>
+        </div>
+      </div>
+      <div class="info col-xs-3">
+        <p class="distance">
+          <p><strong>{{ truck.venue.location.distance * 0.000621371 | number: 1 }} + miles away</strong></p>
+        </p>
+        <p><strong class="rating">{{ truck.venue.rating / 2 }}</strong></p>
+        <p class="price">{{ truck.venue.price.message }}</p>
+        <p class="twitter">{{ truck.venue.contact.twiter }}</p>
+        <p class="phone">{{ truck.venue.contact.formattedPhone }}</p>
+      </div>
+    </div>
+
+  </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <<script type="text/javascript" src="js/lib/ngGeolocation.js">
