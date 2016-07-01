@@ -1,7 +1,7 @@
 #What The Truck!
 ![](img/i1-demo.png)
 ##Purpose
-To create a simple single-page application that displays intuitive, real-time information from local food truck venues.
+To create a simple single page application that displays intuitive, real-time information from local food truck venues.
 
 ##Features
 1. Live, relevant venue information
